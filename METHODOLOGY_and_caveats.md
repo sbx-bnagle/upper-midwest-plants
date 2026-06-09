@@ -243,3 +243,94 @@ Diagnostic findings: (a) Thalictrum dasycarpum absent from master — master has
 Notable: Callirhoe involucrata (wine cups) is a trailing groundcover — hmin=0.5, hmax=0.75 ft foliage / smin=2, smax=3 ft spread; continuous bloom May–October.
 
 Running total: **~50 native species enriched**. Coverage now (of 1,229): Light 147, Water 289, Bloom Time 266, Bloom Color 93, Height-min 140.
+
+---
+
+## v22 update (MOBOT collection — pass 10, largest batch)
+173 cells filled, 35 rows matched, 19 species: Hibiscus moscheutos, Hydrangea quercifolia, Fothergilla gardenii, Clethra alnifolia, Arisaema triphyllum, Podophyllum peltatum, Trillium grandiflorum, Matteuccia struthiopteris, Onoclea sensibilis, Osmunda regalis, Osmunda cinnamomea, Geum triflorum, Dalea purpurea, Baptisia bracteata, Chasmanthium latifolium, Camassia scilloides, Polemonium reptans, Dodecatheon meadia, Sambucus canadensis.
+
+Sources: MOBOT Plant Finder (primary for all), Wikipedia (heights for H. quercifolia, S. canadensis, P. reptans, B. bracteata, C. radicans), NCSU Extension (O. regalis height/spread). Fern rules applied (bt/bc withheld for Matteuccia, Onoclea, Osmunda cinnamomea, Osmunda regalis). Grass rule applied to Chasmanthium latifolium (bc withheld). 
+
+Session began with uploaded CSV from repo (post-routine runs). Coverage on upload: Light 157, Water 298, Bloom Time 275, Height-min 150 — confirming routine has been running and committing to claude/ branches.
+
+Coverage now (of 1,229): Light 180, Water 314, Bloom Time 297, Bloom Color 109, Height-min 179.
+
+---
+
+## v23 update (MOBOT collection — pass 11)
+129 cells filled, 28 rows, 18 species: Iris cristata, Iris versicolor, Dicentra spectabilis, Hamamelis vernalis, Hamamelis virginiana, Lindera benzoin, Cephalanthus occidentalis, Deschampsia caespitosa, Elymus canadensis, Rudbeckia triloba, Conoclinium coelestinum (+ Eupatorium coelestinum synonym), Salvia azurea, Verbena stricta, Verbena hastata, Silphium laciniatum, Silphium terebinthinaceum, Parthenium integrifolium, Yucca filamentosa.
+
+Sources: MOBOT Plant Finder (Lindera benzoin, Parthenium integrifolium, Deschampsia caespitosa, Iris cristata, Iris versicolor, Cephalanthus occidentalis, Silphium laciniatum/terebinthinaceum, Rudbeckia triloba), Wikipedia (Hamamelis virginiana, Elymus canadensis, Salvia azurea, Verbena hastata/stricta, Yucca filamentosa, Conoclinium coelestinum). Bloom time/color withheld for grasses (bc) and where not explicitly stated in sources.
+
+Coverage now (of 1,229): Light 206, Water 333, Bloom Time 310, Bloom Color 120, Height-min 195.
+
+---
+
+## v24 update (MOBOT collection — pass 12)
+172 cells filled, 45 rows, 24 species confirmed in master: 5 Carex sedges (muskingumensis, stricta, flacca, grayi, albicans), 5 Viburnums (lentago, prunifolium, carlesii, burkwoodii, juddii), Perovskia atriplicifolia, Eurybia divaricata + macrophylla, Eupatorium perfoliatum, Echinacea pallida, Rhus glabra + typhina, Gentiana andrewsii, Ruellia humilis, Fragaria virginiana, and light-gap fills for Salvia azurea, Verbena hastata, Hydrangea quercifolia, Polemonium reptans.
+
+Sources: MOBOT Plant Finder (all Carex, all Viburnum, Perovskia, Eupatorium, Eurybia macrophylla, Rhus glabra), Wikipedia (Eurybia divaricata, Echinacea pallida, Eupatorium perfoliatum, Gentiana andrewsii, Ruellia humilis, Rhus glabra height).
+
+High-impact entries: Perovskia atriplicifolia propagated to all Russian sage cultivars (Blue Spire, Little Spire, Denim 'n Lace, etc.); Viburnum carlesii/burkwoodii/juddii filled all fragrant viburnum cultivar rows.
+
+Coverage now (of 1,229): Light 251, Water 355, Bloom Time 327, Bloom Color 129, Height-min 215.
+
+---
+
+## v25 update (MOBOT collection — pass 13, largest pass)
+220 cells filled, 43 rows, 29 species: Syringa vulgaris, Calycanthus floridus, Rosa rugosa, Diervilla lonicera, Hypericum kalmianum, Cornus racemosa, Chionanthus virginicus, Ceanothus americanus, Callicarpa americana, Hakonechloa macra, Elymus hystrix, Sesleria autumnalis, Eragrostis spectabilis, Oligoneuron ohioense, Koeleria macrantha, 4 Carex species (plantaginea, woodii, bromoides, flaccosperma), Pycnanthemum muticum, Monarda bradburiana, Monarda punctata, Epimedium rubrum, Asarum europaeum, Galium odoratum, Campsis radicans, Parthenocissus quinquefolia + tricuspidata, Stachys x Hummelo.
+
+Sources: MOBOT Plant Finder (all); Wikipedia supplementary for Rosa rugosa height, Ceanothus americanus height, Hakonechloa macra zone/height.
+
+Highest-impact entries: Syringa vulgaris (many cultivars — all received light/water/height/bt; bc only for straight species = lilac to purple), Rosa rugosa cultivar propagation, Hakonechloa macra + all Aureola/All Gold/Beni-kaze cultivars. Campsis radicans and both Parthenocissus species filled (vines).
+
+Coverage now (of 1,229): Light 294, Water 382, Bloom Time 346, Bloom Color 141, Height-min 247.
+
+---
+
+## v26 update (MOBOT collection — pass 14)
+235 cells filled, 41 rows, 34 species: Ribes alpinum, Prunus cistena, Calamagrostis brachytricha + canadensis, Liriope spicata + muscari, 4 Sedum species (acre, kamtschaticum, reflexum, ternatum), 2 Thymus species, Waldsteinia ternata, Dryopteris marginalis + erythrosora, Dennstaedtia punctilobula, 5 Carex species, Heuchera richardsonii, Aster sericeus + shortii, Euphorbia corollata, Helianthus occidentalis, Liatris cylindracea, Phlox bifida, Caulophyllum thalictroides, Spiraea alba, Myrica pensylvanica, Heptacodium miconioides, Corylus americana, Equisetum hyemale.
+
+Sources: MOBOT Plant Finder (all species); Wikipedia (Dryopteris marginalis height, Sedum ternatum bloom, Waldsteinia ternata size, Sedum acre bloom).
+
+Fern rule applied (bt/bc omitted): Dryopteris marginalis, Dryopteris erythrosora, Dennstaedtia punctilobula. High-impact propagation: Ribes alpinum (Green Mound + cultivars), Liriope muscari (Big Blue, Variegata, etc.), Prunus cistena, Calamagrostis brachytricha cultivars. Aster sericeus/shortii now differentiated (sericeus = dry/full sun; shortii = shade/medium).
+
+Coverage now (of 1,229): Light 335, Water 417, Bloom Time 365, Bloom Color 156, Height-min 283.
+
+---
+
+## v27 update (MOBOT collection — pass 15, COMPLETION of straight-species blanks)
+300 cells filled, 44 rows, 32 species — all remaining blank native straight-species now have Light Req data. **Zero straight-species rows remain blank on Light.**
+
+Species filled this pass: Antennaria plantaginfolia, Artemisia schmidtiana (zone 1–9, Wikipedia), Bignonia capreolata, Brunnera macrophylla (Wikipedia height/bloom), Cerastium tomentosum, Chrysogonum virginianum, Clematis terniflora, Cotoneaster apiculatus, Delphinium belladonna, Digitalis parviflora, Echinacea tennesseensis, Fargesia rufa, Geum x Champagne, Hydrophyllum virginianum, Isotoma fluviatilis, Juniperus virginiana, Kirengeshoma palmata, Leptinella squalida, Lysimachia clethroides, Mazus reptans, Microbiota decussata, Penstemon hirsutus, Persicaria polymorpha, Pulmonaria x Pink-a-Blue, Rodgersia aesculifolia, Sagina subulata, Salix discolor, Saponaria ocymoides, Sorbaria sorbifolia (MOBOT), Sporobolus airoides, Stachys minima, Viola pedata.
+
+Sources: MOBOT Plant Finder (primary); Wikipedia (Artemisia schmidtiana zone/height/light, Brunnera macrophylla height/bloom, Sorbaria sorbifolia height confirmed).
+
+**Coverage milestone:** All 1,229 rows with Cultivar=N now have Light Req. Remaining blanks are cultivar rows (Cultivar=Y), which require bulk export from nursery sources (Walters Gardens/Fiore/MGC sales-desk requests still pending).
+
+CSV updated. JSON/site rebuild deferred per session instructions.
+
+---
+
+## v28 update — genus/species propagation to cultivar rows (passes 16–17 + cleanup)
+**Coverage milestone: 100% Light Req, 99% Water Req** across all 1,229 rows.
+
+Three sub-passes in this session:
+- Pass 16: genus and species-level keys for 39 genera (Hosta, Hydrangea×5 species, Phlox×3, Ilex×4, Cornus×3, Sedum, Echinacea, Astilbe, Heuchera, Allium, Clematis, Rosa, Weigela, Chamaecyparis, Thuja, Helleborus, Geranium, Baptisia, Viburnum, Syringa, Achillea, Iris, Pinus, Rhododendron, Azalea, Spiraea, Corylus) — 1,372 cells, 490 rows.
+- Pass 17: remaining 415 blank cultivar rows — Lavandula, Aquilegia, Aronia, Aruncus, Athyrium, Campanula, Forsythia, Heucherella, Picea, Taxus, Veronicastrum, Veronica, Diervilla, Buxus, Cotinus, Nepeta, Pennisetum, Anemone, specific Carex, Geum, Monarda, Buddleia, Dianthus, Ligularia — 445 cells, 140 rows.
+- Final cleanup: 80+ additional genera for last 126 rows (Actaea, Agastache, Lavandula, Wisteria, Sambucus nigra, Vaccinium, etc.) + 5 direct-fix rows (Penstemon Dark Towers, Midnight Masquerade, Phlox Minnie Pearl, Rudbeckia American Gold Rush, Sweet as Honey) — 462+10 cells.
+
+**Method note:** genus-level culture data from MOBOT Plant Finder, representing standard documented culture for each genus. For genera with species-differentiated culture (Hydrangea, Ilex, Phlox, Asclepias, Cornus), species-level keys used instead. Bloom color withheld for all cultivar rows per standard cultivar-aware rule.
+
+Final coverage (of 1,229): Light **1229/1229 (100%)**, Water **1219/1229 (99%)**, Bloom Time 634 (51%), Height-min 395 (32%).
+
+---
+
+## v29 update — bloom time and zone propagation (pass 18)
+934 cells filled across 744 rows. Genus and species-level bloom time and zone values propagated to all matching rows (blank-only rule, no overwrites).
+
+Coverage after this pass (of 1,229): Light 100%, Water 99%, Bloom Time **86%**, Zone **48%**, Height-min 32%.
+
+**Method:** Bloom time filled at genus/species level — bloom timing is generally consistent across cultivars of a species (cultivars differ in color, not season). Conifers intentionally skipped (Chamaecyparis, Thuja, Pinus, Juniperus, Taxus, Abies, Tsuga, Picea — non-flowering in a garden sense). Carex/sedge bloom time also skipped (wind-pollinated, insignificant). Bloom color not filled (cultivar-aware rule maintained — colors vary by cultivar and require individual data). Zone filled at genus level where hardiness is consistent.
+
+Remaining gaps (Height-min 32%, Bloom Color 14%) require either bulk catalog export or per-cultivar sourcing.
