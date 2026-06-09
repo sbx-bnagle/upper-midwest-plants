@@ -15,35 +15,30 @@ DRO  = K('Drought Resistant'); LM = K('Low Maintenance')
 GA   = K('Garden Attributes'); SOIL = K('Soil Req'); CULT = K('Cultivar')
 
 # ── Fill DATA dict from research ───────────────────────────────────────────
-# Sources: Missouri Botanical Garden Plant Finder (primary),
-#   wildflower.org (Lady Bird Johnson Wildflower Center),
-#   Native Plant Society of Texas, Minnesota Wildflowers,
-#   Prairie Moon Nursery / Prairie Nursery
+# Sources: MOBOT Plant Finder (search snippets; direct pages 403),
+#   wildflower.org / Lady Bird Johnson Wildflower Center,
+#   usperennials.com, plantdelights.com (supplementary)
 DATA = {
-    # White-tinged Sedge — MOBOT Plant Finder (kempercode e116)
-    # "Flowers bloom in late spring (May)"
-    'Carex albicans': dict(bt='Late Spring'),
-    # Appalachian Sedge — wildflower.org + multiple nursery sources
-    # blooms May–June (late spring to early summer)
-    'Carex appalachica': dict(bt='May to June'),
-    # Plains Oval Sedge — Native Plant Society of TX (citing USDA PLANTS)
-    # "blooms May–July"
-    'Carex brevior': dict(bt='May to July'),
-    # Brome-like Sedge — MOBOT Plant Finder (taxonid 299617)
-    # "flowering stems appear in late spring to summer (May–July)"
-    'Carex bromoides': dict(bt='May to July'),
-    # Blue Sedge — MOBOT Plant Finder (taxonid 279735) + multiple horticultural sources
-    # "bloom time June–August"; "flowers in early summer"
-    'Carex flacca': dict(bt='June to August'),
-    # Plantain-leaved Sedge — wildflower.org (id_plant=capl4)
-    # bloom time explicitly listed as "Mar, Apr, May"
-    'Carex plantaginea': dict(bt='March to May'),
-    # Eastern Star Sedge — MOBOT Plant Finder (taxonid 299620)
-    # "flowers bloom from April–May"
-    'Carex radiata': dict(bt='April to May'),
-    # Long-beaked Sedge — wildflower.org (id_plant=casp7) + Minnesota Wildflowers
-    # "April/May–June"; "blooming occurs mid to late spring"
-    'Carex sprengelii': dict(bt='April to June'),
+    # Acanthus spinosus — usperennials.com: "trouble free and drought tolerant";
+    #   plantdelights.com: "drought tolerant once established",
+    #   "carefree, low-maintenance plants";
+    #   MOBOT: "architecturally bold flower spikes", "attractive foliage";
+    #   gardenia.net: "lasts well in bouquets, makes striking dried arrangements"
+    'Acanthus spinosus': dict(
+        dro='TRUE',
+        lm='TRUE',
+        ga='architecturally bold flower spikes, good cut flower, good dried flower',
+    ),
+    # Aralia racemosa — MOBOT: "Berries are attractive to birds",
+    #   "purple-red berries are showy in fall",
+    #   "large umbellate flower panicles"
+    'Aralia racemosa': dict(
+        ga='attracts birds, showy fruit',
+    ),
+    # Bignonia capreolata — LBJWC wildflower.org: "drought-tolerant once established"
+    'Bignonia capreolata': dict(
+        dro='TRUE',
+    ),
 }
 # ───────────────────────────────────────────────────────────────────────────
 
