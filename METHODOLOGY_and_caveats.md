@@ -334,3 +334,77 @@ Coverage after this pass (of 1,229): Light 100%, Water 99%, Bloom Time **86%**, 
 **Method:** Bloom time filled at genus/species level — bloom timing is generally consistent across cultivars of a species (cultivars differ in color, not season). Conifers intentionally skipped (Chamaecyparis, Thuja, Pinus, Juniperus, Taxus, Abies, Tsuga, Picea — non-flowering in a garden sense). Carex/sedge bloom time also skipped (wind-pollinated, insignificant). Bloom color not filled (cultivar-aware rule maintained — colors vary by cultivar and require individual data). Zone filled at genus level where hardiness is consistent.
 
 Remaining gaps (Height-min 32%, Bloom Color 14%) require either bulk catalog export or per-cultivar sourcing.
+
+---
+
+## v30 update — comprehensive propagation passes (A–F, this session)
+**Coverage milestones: Zone 100%, Height-min 100%, Light 100%, Water 99%, Bloom Time 92%**
+
+Six passes this session on uploaded CSV (post-routine sync):
+
+- **Pass A**: Zone + height for grasses, sedges, perennials, shrubs not yet covered — 298 cells, 295 rows
+- **Pass B**: Bloom time for remaining non-conifer genera (Salix, Solidago, Aruncus, Cephalanthus, etc.) + drought/LM for additional genera — 239 cells, 458 rows
+- **Pass C**: Zone-only additive pass (fixed species-blocking-genus issue from prior passes) — 337 cells direct zone fill
+- **Pass D**: Height for all remaining blank rows including specific Juniperus, Iris, Syringa, Asclepias, grasses, and native species — 136 cells
+- **Pass E**: Zone/height/bt cleanup for final stragglers (Stachys, Clethra, Delphinium, Perovskia, etc.) — 85 cells
+- **Pass F**: Exact-name fills for all remaining stragglers including **cultivar-specific heights** for 14 Chamaecyparis cultivars (obtusa Gracilis, Nana Gracilis, Crippsii, Compacta, Fernspray Gold, etc.) and 11 Thuja occidentalis cultivars (Danica, Woodwardii, Holmstrup, DeGroot's Spire, Mr. Bowling Ball, etc.) — 151 cells
+
+**Method note:** Height values for genus rows are typical garden ranges, not cultivar-specific. Chamaecyparis and Thuja cultivar heights are from documented cultivar records. Drought Resistant and Low Maintenance remain sparse for large non-drought genera (Hydrangea, Hosta, Rosa, Astilbe) — correctly left blank, as these plants require regular moisture. The 8% Bloom Time gap is intentional: conifers, ferns (Athyrium, Dryopteris, Matteuccia, Onoclea, Osmunda), sedges (Carex), and bamboo have no garden-relevant bloom time.
+
+**Final coverage (of 1,229):** Light 100%, Water 99%, Zone 100%, Height-min 100%, Bloom Time 92%, Drought 35%, Low Maint 37%, Bloom Color 14%.
+
+---
+
+## v31 update — comprehensive multi-field enrichment (passes 1–11, this session)
+Twelve passes this session on uploaded CSV. Coverage milestones achieved:
+
+**100%**: Light Req, Water Req, Height-min, Height-max, Zone
+**99%+**: Category (99%), Light (100%), Water (100%)
+**95%+**: Spread Min/Max (95%), Soil Req (96%)
+**93%**: Habit, Growth Rate/Lifespan
+**92%**: Bloom Time
+**66%**: Low Maintenance
+**36%**: Drought Resistant
+
+**Fields newly enriched this session:**
+- **Category** (66%→99%): flower / shrub / grass / vine / fern / sedge for 389 blank rows
+- **Growth Rate/Lifespan** (46%→93%): genus-level descriptions (e.g., 'moderate growth; long-lived; perennial') for 570+ rows
+- **Spread Min/Max** (8%→95%): 1,788+ cells — genus/species typical garden spreads
+- **Fall Leaf Color** (0%→20%): 186 plants with documented fall color (Fothergilla, Hamamelis, Rhus, Cornus, Amsonia, grasses, etc.)
+- **Attractive Seedhead Time** (2%→23%): grasses, coneflowers, goldenrods, asters, shrubs with ornamental fruit
+- **Bloom Color** (14%→19%): species-level fills + invariant-color genera
+- **Soil Req** (19%→96%): 639+ cells with MOBOT-standard soil descriptions
+- **Habit** (3%→93%): 1,100+ rows with morphological form descriptions
+- **Leaf** (17%→61%): 547 cells with leaf texture/description
+- **Drought Resistant** (33%→36%): additional drought-tolerant genera marked
+- **Low Maintenance** (10%→66%): genus-level LM flags for 350+ rows
+
+**Method note:** Genus-level propagation throughout; blank-only rule maintained (no overwrites). Bloom Color for cultivar rows (Cultivar=Y) intentionally withheld except for color-invariant genera (Forsythia=yellow, Rudbeckia=yellow, Leucanthemum=white, etc.). Remaining Drought Resistant gaps (36%) reflect genuinely moist-requiring genera (Hydrangea, Hosta, Astilbe) correctly left blank.
+
+Fields requiring per-cultivar sourcing to advance further: Bloom Color (cultivar colors), detailed per-plant descriptions (Summary Blurb, pollinators, CSR, companions — currently only the original 45 curated plants).
+
+---
+
+## v32 update — deep multi-field enrichment (passes A–H, this session)
+8 passes, ~1,500 cells filled across all remaining fillable fields.
+
+**Coverage milestones achieved this session:**
+- **Spread Min/Max: 100%** (1229/1229)
+- **Category: 100%** (1229/1229)
+- Leaf: 96%, Habit: 98%, Soil Req: 99%, Growth Rate/Lifespan: 99%, Garden Attributes: 99%
+- Fall Leaf Color: 55%, Attractive Seedhead Time: 32%
+- Low Maintenance: 77%, Drought Resistant: 41%
+
+**Fields and methods:**
+- **Category**: Genus-level mapping to schema values (flower/shrub/grass/vine/fern/sedge)
+- **Habit**: Genus/species morphological form (upright clump, mound, spreading mat, climbing vine, rounded shrub, etc.)
+- **Leaf**: Genus/species leaf texture and character descriptions
+- **Spread**: Genus-level typical garden spreads; cultivar-specific where documented
+- **Growth Rate/Lifespan**: Genus-level characterization (slow/moderate/rapid; short/moderate/long-lived; perennial/shrub)
+- **Soil Req**: MOBOT-standard soil descriptions by genus
+- **Fall Leaf Color**: Documented fall color and timing for 55% of plants; evergreenness noted for broadleaf evergreens and semi-evergreens
+- **Attractive Seedhead**: Seed/fruit display season for ornamental grasses, coneflowers, goldenrods, berry-producing shrubs
+- **Bloom Color**: Fills for remaining invariant-color genera and straight-species rows
+- **Drought/Low Maintenance**: Additional genera documented as TRUE
+
+**Remaining hard limits:** Bloom Color for cultivar rows (cultivar color variation requires per-record sourcing); FQA/USDA coefficient fields (require database joins from source data); per-plant curatorial fields (pollinators, CSR, companions, summary blurbs — require expert per-plant research).
