@@ -16,114 +16,34 @@ GA   = K('Garden Attributes'); SOIL = K('Soil Req'); CULT = K('Cultivar')
 
 # ── Fill DATA dict from research ───────────────────────────────────────────
 # Sources: Missouri Botanical Garden Plant Finder (primary),
-#   usperennials.com, gardenia.net, plants.ces.ncsu.edu,
-#   prairiemoon.com / prairienursery.com (Amorpha canescens)
+#   wildflower.org (Lady Bird Johnson Wildflower Center),
+#   Native Plant Society of Texas, Minnesota Wildflowers,
+#   Prairie Moon Nursery / Prairie Nursery
 DATA = {
-    # Bears' Breeches — MOBOT taxonid 291709
-    # Zone 5-9, full sun to part shade, medium moisture, 3-4' tall x 2.5-3' wide
-    # Bloom: late spring to mid summer; flowers pure white
-    'Acanthus spinosus': dict(
-        light='full sun, part shade',
-        water='Medium',
-        zone='5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b',
-        hmin='3', hmax='4',
-        smin='2.5', smax='3',
-        bt='Late Spring, Early Summer, Mid Summer',
-        bc='white',
-        soil='average, well-drained',
-    ),
-    # Bottlebrush Buckeye — MOBOT taxonid 281048
-    # Zone 4-8, part shade to full shade, medium, 8-12' tall x 8-15' wide
-    # Bloom: June-July; white with red anthers
-    'Aesculus parviflora': dict(
-        light='part shade, full shade',
-        water='Medium',
-        zone='4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b',
-        hmin='8', hmax='12',
-        smin='8', smax='15',
-        bt='Early Summer, Mid Summer',
-        bc='white',
-        soil='loam',
-    ),
-    # Purple Giant Hyssop — wildflower.org, izelplants.com, multiple nursery sources
-    # Zone 4-8, full sun to part shade, medium, 3-6' tall x 1.5-2' wide
-    # Bloom: July-September; purple/lilac
-    'Agastache scrophulariifolia': dict(
-        light='full sun, part shade',
-        water='Medium',
-        zone='4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b',
-        hmin='3', hmax='6',
-        smin='1.5', smax='2',
-        bt='Mid Summer, Late Summer, Early Fall',
-        bc='purple',
-    ),
-    # Lady's Mantle — MOBOT kempercode b210
-    # Zone 3-8, full sun to part shade, medium, 1-1.5' tall x 1.5-2' wide
-    # Bloom: June; chartreuse
-    'Alchemilla mollis': dict(
-        light='full sun, part shade',
-        water='Medium',
-        zone='3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b',
-        hmin='1', hmax='1.5',
-        smin='1.5', smax='2',
-        bt='Early Summer',
-        bc='chartreuse',
-        soil='average, loam',
-    ),
-    # Leadplant — MOBOT kempercode b260 + Prairie Moon/Prairie Nursery
-    # Zone 2-9, full sun, dry to medium, 2-3' tall x 2-3' wide
-    # Bloom: May-June; purple; drought tolerant
-    'Amorpha canescens': dict(
-        light='full sun',
-        water='Dry to medium',
-        zone='2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b',
-        hmin='2', hmax='3',
-        smin='2', smax='3',
-        bt='Late Spring, Early Summer',
-        bc='purple',
-        dro='TRUE',
-        soil='sand, loam, clay',
-    ),
-    # Threadleaf Bluestar — MOBOT kempercode w810
-    # Zone 5-8, full sun to part shade, medium, 2-3' tall x 2-3' wide
-    # Bloom: April-May; light blue; low maintenance; attracts butterflies
-    'Amsonia hubrectii': dict(
-        light='full sun, part shade',
-        water='Medium',
-        zone='5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b',
-        hmin='2', hmax='3',
-        smin='2', smax='3',
-        bt='Mid Spring, Late Spring',
-        bc='light blue',
-        lm='TRUE',
-        ga='attracts butterflies',
-    ),
-    # Pasque Flower (syn. Pulsatilla vulgaris) — MOBOT kempercode b350
-    # Zone 4-8, full sun, dry to medium, 0.75-1' tall x 0.75-1' wide
-    # Bloom: March-April (early spring); purple
-    'Anemone pulsatilla': dict(
-        light='full sun',
-        water='Dry to medium',
-        zone='4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b',
-        hmin='0.75', hmax='1',
-        smin='0.75', smax='1',
-        bt='Early Spring, Mid Spring',
-        bc='purple',
-        soil='average, well-drained',
-    ),
-    # Snowdrop Windflower — MOBOT kempercode h330
-    # Zone 4-8, part shade, medium, 1-1.5' tall x 0.75-1' wide
-    # Bloom: April; white
-    'Anemone sylvestris': dict(
-        light='part shade',
-        water='Medium',
-        zone='4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b',
-        hmin='1', hmax='1.5',
-        smin='0.75', smax='1',
-        bt='Mid Spring',
-        bc='white',
-        soil='average, well-drained',
-    ),
+    # White-tinged Sedge — MOBOT Plant Finder (kempercode e116)
+    # "Flowers bloom in late spring (May)"
+    'Carex albicans': dict(bt='Late Spring'),
+    # Appalachian Sedge — wildflower.org + multiple nursery sources
+    # blooms May–June (late spring to early summer)
+    'Carex appalachica': dict(bt='May to June'),
+    # Plains Oval Sedge — Native Plant Society of TX (citing USDA PLANTS)
+    # "blooms May–July"
+    'Carex brevior': dict(bt='May to July'),
+    # Brome-like Sedge — MOBOT Plant Finder (taxonid 299617)
+    # "flowering stems appear in late spring to summer (May–July)"
+    'Carex bromoides': dict(bt='May to July'),
+    # Blue Sedge — MOBOT Plant Finder (taxonid 279735) + multiple horticultural sources
+    # "bloom time June–August"; "flowers in early summer"
+    'Carex flacca': dict(bt='June to August'),
+    # Plantain-leaved Sedge — wildflower.org (id_plant=capl4)
+    # bloom time explicitly listed as "Mar, Apr, May"
+    'Carex plantaginea': dict(bt='March to May'),
+    # Eastern Star Sedge — MOBOT Plant Finder (taxonid 299620)
+    # "flowers bloom from April–May"
+    'Carex radiata': dict(bt='April to May'),
+    # Long-beaked Sedge — wildflower.org (id_plant=casp7) + Minnesota Wildflowers
+    # "April/May–June"; "blooming occurs mid to late spring"
+    'Carex sprengelii': dict(bt='April to June'),
 }
 # ───────────────────────────────────────────────────────────────────────────
 
