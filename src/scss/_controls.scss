@@ -1,0 +1,136 @@
+// Controls — sticky bar: expanding name search, Query toggle, Reset.
+
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--sp-5) 0 0;
+  margin-top: 160px;
+}
+
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-3);
+  align-items: center;
+  padding-bottom: var(--sp-3);
+}
+
+// ── Name search: a circled magnifier that expands into a white pill on focus ──
+.search-wrap {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 44px; // collapsed: circle
+  height: 44px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  overflow: hidden;
+  transition:
+    width 0.25s ease,
+    background 0.18s ease;
+  margin-top: 8px;
+  margin-left: auto;
+}
+.search-wrap.open {
+  width: min(420px, 62vw); // focused: pill
+  background: #fff;
+}
+.search-toggle {
+  flex: 0 0 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ink);
+  cursor: pointer;
+}
+.search-wrap input[type='text'] {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-table);
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0 var(--sp-4) 0 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.search-wrap.open input[type='text'] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// ── bar buttons ──
+button.query-button,
+button.reset {
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  background: var(--neon);
+  color: var(--ink);
+  border: none;
+  padding: 13px 20px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  margin-top: 8px;
+}
+button.query-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+button.query-button:hover,
+button.reset:hover {
+  opacity: 0.78;
+}
+button.query-button.active {
+  background: var(--green);
+}
+button.reset {
+  display: none;
+  background: var(--rule-strong);
+}
+button.reset.visible {
+  display: inline-block;
+}
+
+
+h1 {
+  font-weight: var(--fw-head);
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+button.export-button {
+  position: absolute;
+  top: -148px;
+  left: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-caption);
+  font-weight: 500;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  // padding: 7px var(--sp-4);
+  // border-radius: var(--radius-pill);
+  cursor: pointer;
+  white-space: nowrap; 
+}
+
+button.export-button:hover {
+  text-decoration: underline;
+}

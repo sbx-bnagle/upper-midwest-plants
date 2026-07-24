@@ -1,0 +1,72 @@
+// Base — resets, page shell, header (with Export), sunflower footer, floating buttons.
+
+* {
+  box-sizing: border-box;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+}
+
+.page-wrap {
+  max-width: none;
+  margin: 0;
+  padding: 0 80px 100px 40px;
+}
+
+.edits-badge {
+  font-size: var(--fs-label);
+  color: var(--ochre);
+  margin-left: var(--sp-1);
+}
+
+// ── footer: just the sunflower ──
+footer {
+  margin-top: 60px;
+  padding: var(--sp-8) 0 var(--sp-5);
+  text-align: center;
+}
+.sunflower {
+  font-size: 72px;
+  line-height: 1;
+  display: inline-block;
+}
+
+// ── floating Top button: fixed bottom right, clear of the inventory spine ──
+#totop {
+  position: fixed;
+  bottom: 24px;
+  right: 56px; // 40px spine peek + breathing room
+  z-index: 210; // above the closed inventory spine
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  font-family: var(--sans);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.18s;
+  pointer-events: none;
+}
+#totop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+#totop:hover {
+  opacity: 0.82;
+}
+
+#sentinel {
+  height: 1px;
+}

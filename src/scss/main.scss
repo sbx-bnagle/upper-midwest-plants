@@ -1,0 +1,10 @@
+// Plant Picker — compiled by Gulp (src/scss → dist/css/style.css)
+// Token system: CSS custom properties, defined once in _tokens.scss.
+@use 'tokens';
+@use 'base';
+@use 'controls';
+@use 'query-pane';
+@use 'plant-list';
+@use 'detail';
+@use 'inventory';
+@use 'header';

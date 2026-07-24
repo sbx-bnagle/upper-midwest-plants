@@ -1,0 +1,341 @@
+// Inventory — dark slide-out pane: spine, stats, season strip, color pies,
+// and the shared plant-list rendered narrow on the dark surface.
+
+#inv-pane {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80vw;
+  max-width: 1100px;
+  z-index: 200;
+  background: var(--inv-bg);
+  color: var(--inv-text);
+  box-shadow: var(--shadow-inv);
+  transform: translateX(calc(100% - 40px));
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+#inv-pane.open {
+  transform: translateX(0);
+  cursor: default;
+}
+
+#inv-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: var(--overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#inv-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// count badge floats at the visible left edge of the closed pane
+#spine-count {
+  position: absolute;
+  left: 8px;
+  top: 22px;
+  z-index: 3;
+  background: var(--green);
+  color: var(--paper);
+  font-size: var(--fs-caption);
+  font-weight: 800;
+  min-width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+#inv-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-left: 8px; // slim margin: text edge peeks in the closed state
+}
+
+.inventory-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) 22px var(--sp-4) 40px;
+  border-bottom: 1px solid var(--inv-rule);
+}
+.inventory-head h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--inv-text);
+}
+.inventory-head-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+button.inventory-download {
+  font-family: var(--sans);
+  font-size: var(--fs-caption);
+  font-weight: 500;
+  background: var(--green);
+  color: var(--paper);
+  border: none;
+  padding: 7px var(--sp-4);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+button.inventory-download:hover {
+  opacity: 0.85;
+}
+button.inventory-download:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.inventory-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--inv-text-soft);
+  cursor: pointer;
+  line-height: 1;
+}
+.inventory-close:hover {
+  color: var(--inv-text);
+}
+
+// ── stats band ──
+.inventory-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-4);
+  padding: var(--sp-4) 22px var(--sp-4) 40px;
+  border-bottom: 1px solid var(--inv-rule);
+  background: var(--inv-inset);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat-number {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--green-tint);
+}
+.stat-label {
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--inv-text-soft);
+}
+.stat-subtext {
+  font-size: var(--fs-caption);
+  color: var(--inv-text-soft);
+  margin-top: 2px;
+}
+
+// ── seasonal bloom strip ──
+.season-strip {
+  padding: var(--sp-4) 22px var(--sp-4) 40px;
+  border-bottom: 1px solid var(--inv-rule);
+  .query-label {
+    margin-bottom: var(--sp-2);
+    color: var(--inv-text-soft);
+  }
+}
+.gap-row {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+.gap-cell {
+  flex: 1;
+  height: 26px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: var(--inv-text-faint);
+  background: var(--inv-rule-soft);
+}
+.gap-cell.has-bloom {
+  background: var(--green-2);
+  color: var(--paper);
+  font-weight: 700;
+}
+.gap-note {
+  font-size: var(--fs-caption);
+  color: var(--inv-text-soft);
+}
+.gap-note b {
+  color: #e6a86a;
+}
+
+// ── seasonal color pies ──
+.color-strip {
+  padding: var(--sp-4) 22px var(--sp-4) 40px;
+  border-bottom: 1px solid var(--inv-rule);
+  .query-label {
+    color: var(--inv-text-soft);
+  }
+}
+.pie-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-1);
+}
+.pie-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.pie-cell .pie-name {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--inv-text-soft);
+  font-weight: 600;
+}
+.pie-cell .pie-color-note {
+  font-size: var(--fs-label);
+  color: var(--inv-text-faint);
+}
+.pie-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-4);
+  margin-top: var(--sp-3);
+  font-size: var(--fs-caption);
+  color: var(--inv-text-soft);
+}
+.pie-legend .legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.pie-legend .legend-swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid var(--rule);
+}
+
+// ── the shared plant list, narrowed and recolored for the dark surface ──
+.inventory-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-2) 22px 40px 40px;
+}
+.inventory-empty {
+  padding: 50px var(--sp-3);
+  text-align: center;
+  color: var(--inv-text-soft);
+  font-size: var(--fs-table);
+}
+
+.plant-list.inventory-plant-list {
+  --cols: 46px minmax(130px, 1.3fr) minmax(108px, 1fr) 58px 70px minmax(102px, 1fr) 48px 48px 60px
+    60px minmax(80px, 0.8fr) 180px;
+  font-size: var(--fs-meta);
+
+  li.header-row {
+    position: sticky;
+    top: 0;
+    background: var(--inv-bg);
+    border-bottom: 1px solid var(--inv-rule);
+    pointer-events: none; // display only; sorting lives in the main list
+  }
+  .header-cell {
+    color: var(--inv-text-faint);
+    background: transparent;
+  }
+  .timeline-header span {
+    color: var(--inv-text-faint);
+  }
+
+  li.plant-row {
+    border-bottom: 1px solid var(--inv-rule-soft);
+    color: var(--inv-text);
+  }
+  li.plant-row:hover {
+    background: var(--inv-hover);
+  }
+
+  .header-cell.column-drought,
+  li.plant-row .column-drought,
+  .header-cell.column-width,
+  li.plant-row .column-width {
+    border-left: 1px solid var(--inv-rule);
+  }
+
+  .column-name .common-name,
+  .category-label {
+    color: var(--inv-text);
+  }
+  .column-name .botanical-name,
+  .tier-label,
+  .column-requirement,
+  .column-habit {
+    color: var(--inv-text-soft);
+  }
+  .column-dimension {
+    color: var(--inv-text);
+  }
+  .flag-cell {
+    color: var(--green-tint);
+  }
+  .empty-cell {
+    color: var(--inv-text-faint);
+  }
+
+  .detail-wrap {
+    background: var(--inv-detail);
+  }
+  .detail {
+    border-left-color: var(--green-2);
+  }
+  .detail-key {
+    color: var(--inv-text-faint);
+  }
+  .detail-value {
+    color: var(--inv-text);
+  }
+  button.edit-button {
+    border-color: var(--inv-text-faint);
+    color: var(--inv-text);
+  }
+  button.edit-button:hover {
+    background: var(--inv-hover);
+  }
+
+  @media (max-width: 760px) {
+    li.plant-row {
+      background: transparent;
+      border-color: var(--inv-rule);
+    }
+    .cell-group-requirements,
+    .cell-group-design {
+      border-top-color: var(--inv-rule-soft);
+    }
+    .cell .mobile-label {
+      color: var(--inv-text-faint);
+    }
+  }
+}

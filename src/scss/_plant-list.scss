@@ -1,0 +1,325 @@
+// Plant list — the plant listing as a CSS-grid <ul>; collapses to stacked cards on mobile.
+// Column template is a token-style var so the inventory can narrow it with one override.
+
+// .plant-list-wrap {
+//   overflow-x: clip;
+// }
+
+.plant-list {
+  --cols: 56px minmax(170px, 1fr) minmax(128px, .75fr) minmax(118px, 1fr) 66px 66px 66px
+    66px minmax(90px, 0.75fr) 240px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-table);
+}
+
+// groups are transparent at desktop; they become card sections on mobile
+.plant-list .cell-group {
+  display: contents;
+}
+
+// ── header row ──
+li.header-row {
+  display: grid;
+  grid-template-columns: var(--cols);
+  position: sticky;
+  top: var(--ctrl-h, 52px);
+  z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.header-cell {
+  font-family: var(--sans);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: var(--sp-2) var(--sp-3) 28px;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-cell.column-quantity,
+.header-cell.column-name {
+  padding-left: 0;
+}
+// flag columns: centered to sit over their centered glyphs
+.header-cell.flag-column {
+  text-align: center;
+  padding-left: var(--sp-1);
+  padding-right: var(--sp-1);
+}
+.header-cell.narrow-col {
+  padding-left: var(--sp-2);
+  padding-right: var(--sp-1);
+}
+// these labels are wider than their columns in all-caps; mixed case + no
+// tracking keeps them readable and fully inside the column
+.header-cell.flag-column,
+.header-cell.narrow-col,
+.header-cell.column-width,
+.header-cell.column-height {
+  text-transform: none;
+  letter-spacing: 0;
+}
+.header-cell.column-season {
+  position: relative;
+}
+.timeline-header {
+  position: absolute;
+  bottom: 6px;
+  left: var(--sp-3);
+  width: 176px;
+  height: 12px;
+}
+.timeline-header span {
+  position: absolute;
+  top: 0;
+  font-size: 9px;
+  color: var(--ink);
+}
+
+// vertical rules: Character | requirements | design
+.header-cell.column-soil,
+li.plant-row .column-soil,
+.header-cell.column-width,
+li.plant-row .column-width {
+  border-left: 1px solid var(--rule);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+// ── rows ──
+li.plant-row {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid var(--rule);
+}
+li.plant-row:hover {
+  background: var(--paper2);
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.cell {
+  padding: var(--sp-3);
+  min-width: 0;
+}
+.cell .mobile-label {
+  display: none;
+} // mobile-only labels
+
+.column-quantity {
+  padding-left: 0;
+  padding-right: 6px;
+}
+.quantity-input {
+  width: 40px;
+  height: 36px;
+  font-family: var(--sans);
+  font-size: var(--fs-meta);
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: var(--sp-1) 2px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  margin-top: -2px;
+  margin-right: 80px;
+  -moz-appearance: textfield;
+}
+.quantity-input:focus {
+  border-color: var(--green);
+  background: #fff;
+}
+.quantity-input.has-quantity {
+  border-color: var(--green);
+  background: #fff;
+  font-weight: 700;
+}
+
+.column-name {
+  padding-left: 0;
+}
+.column-name .common-name {
+  font-weight: 700;
+  display: block;
+  line-height: 1.15;
+}
+.column-name .botanical-name {
+  font-style: italic;
+  color: var(--ink);
+  font-size: var(--fs-meta);
+  display: block;
+}
+
+.column-character {
+  align-self: start;
+  padding-top: var(--sp-3);
+}
+.category-label {
+  display: block;
+  font-size: var(--fs-meta);
+  color: var(--ink);
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+.tier-label {
+  display: block;
+  font-size: var(--fs-meta);
+  color: var(--ink-soft);
+  line-height: 1.3;
+  margin-top: 2px;
+}
+.tier-label mark,
+footer mark {
+  background: var(--mark-bg);
+  color: var(--ink);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.column-requirement {
+  font-size: var(--fs-meta);
+  color: var(--ink);
+}
+.column-icon {
+  white-space: nowrap;
+}
+// ── light / water level meter: number + 5 stacked bars ──
+// bottom bars fill in the passed color (--lvl-c: gold = light, blue = water),
+// the rest stay grey (--lvl-off). Always 5 bars; the number states the level.
+.lvl {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+  line-height: 1;
+}
+.lvl-num {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.lvl-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lvl-bar {
+  width: 15px;
+  height: 3px;
+  border-radius: 1.5px;
+  background: var(--lvl-off);
+}
+.lvl-bar.on {
+  background: var(--lvl-c, var(--lvl-gold));
+}
+.column-dimension {
+  font-size: var(--fs-meta);
+  white-space: nowrap;
+}
+.column-habit {
+  font-size: var(--fs-meta);
+  color: var(--ink);
+}
+.flag-cell {
+  text-align: center;
+  font-size: 17px;
+  color: var(--green);
+}
+.empty-cell {
+  color: var(--ink-faint);
+}
+.timeline-svg {
+  display: block;
+}
+
+// ── expanded detail (inside the li, full width) ──
+.detail-wrap {
+  grid-column: 1 / -1;
+  cursor: default;
+  background: var(--paper2);
+}
+
+// ── mobile: cards ──
+@media (max-width: 760px) {
+  li.header-row {
+    display: none;
+  }
+
+  .plant-list {
+    font-size: var(--fs-meta);
+  }
+
+  li.plant-row {
+    display: block;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    margin: 0 0 var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+  }
+  li.plant-row:hover {
+    background: var(--paper);
+  }
+
+  .plant-list .cell-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-1) var(--sp-5);
+    align-items: center;
+  }
+  .cell-group-primary {
+    position: relative;
+    padding-right: 64px;
+  } // room for qty
+  .cell-group-requirements,
+  .cell-group-design {
+    border-top: 1px solid var(--rule);
+    margin-top: var(--sp-2);
+    padding-top: var(--sp-2);
+  }
+
+  .cell {
+    padding: 2px 0;
+    border: none !important;
+  }
+  .cell .mobile-label {
+    display: inline-block;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-right: var(--sp-1);
+  }
+  .column-quantity {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+  }
+  .flag-cell:empty {
+    display: none;
+  } // hide false flags on cards
+  .column-season {
+    flex-basis: 100%;
+  }
+  .detail-wrap {
+    margin: var(--sp-2) calc(-1 * var(--sp-4)) 0;
+  }
+}

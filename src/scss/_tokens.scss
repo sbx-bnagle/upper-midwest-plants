@@ -1,0 +1,110 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// TOKENS — the single source of truth for color, type, and graphic styles.
+//
+// System: CSS custom properties. Every other stylesheet references var(--x).
+// The $_private Sass vars below exist ONLY inside this file, to derive
+// computed values (alpha variants) at compile time. Edit values here once;
+// they propagate everywhere, including the runtime values JS reads.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── private sources (never referenced outside this file) ──
+$_paper: #f0efeb;
+$_paper2: #e7e7e4;
+$_ink: #1a1a1a;
+$_ink-soft: #dadbd9;
+$_green: #3f5a3a;
+$_green-2: #5d7a4e;
+$_green-tint: #cfe0b8;
+$_olive: #7d7a3c;
+$_ochre: #a8632e;
+$_gold: #b8922f;
+$_grey: #8a8472;
+$_lvl-gold: #f0ac1e;
+$_lvl-blue: #3a47c6;
+$_lvl-off: #cfcdc6;
+
+// ── added colors (need to consider with above) ──
+$_neon: #4ff062;
+
+
+
+:root {
+  // ── color palette ──
+  --paper: #{$_paper}; // page background
+  --paper2: #{$_paper2}; // raised fields / hover
+  --ink: #{$_ink}; // primary text + dark surfaces
+  --ink-soft: #{$_ink-soft}; // secondary text
+  --green: #{$_green}; // brand accent
+  --green-2: #{$_green-2};
+  --green-tint: #{$_green-tint}; // accent on dark surfaces
+  --olive: #{$_olive};
+  --ochre: #{$_ochre}; // warnings / [EST]
+  --gold: #{$_gold}; // Native highlight
+  --grey: #{$_grey};
+  --accent: var(--green);
+
+  --neon: #{$_neon};
+
+
+  // level-circle glyphs (read by JS for SVG fills)
+  --lvl-gold: #{$_lvl-gold};
+  --lvl-blue: #{$_lvl-blue};
+  --lvl-off: #{$_lvl-off};
+
+  // ── typography ──
+  --sans: 'Alegreya Sans', sans-serif;
+  --fs-base: 16px; // body
+  --fs-table: 15px; // listing rows
+  --fs-meta: 14px; // secondary row text
+  --fs-caption: 13px; // column headers, captions
+  --fs-label: 13px; // uppercase micro-labels
+  --lh-base: 1.45;
+  --ls-label: 0.07em; // uppercase label tracking
+  --fw-head: 600; // headings (h1)
+
+  // ── rules, borders & overlays (light surface) ──
+  --rule: #{rgba($_ink, 0.13)}; // hairline
+  --rule-strong: #{rgba($_ink, 0.35)}; // outlined buttons
+  --ink-faint: #{rgba($_ink, 0.22)}; // empty-cell dots, ghost marks
+  --overlay: #{rgba($_ink, 0.3)}; // inventory backdrop
+  --mark-bg: #{rgba($_gold, 0.3)}; // Native <mark>
+
+  // ── dark surface (inventory pane) ──
+  --inv-bg: var(--ink);
+  --inv-text: var(--paper);
+  --inv-text-soft: #{rgba($_paper, 0.6)};
+  --inv-text-faint: #{rgba($_paper, 0.55)};
+  --inv-rule: #{rgba($_paper, 0.16)};
+  --inv-rule-soft: #{rgba($_paper, 0.12)};
+  --inv-hover: #{rgba($_paper, 0.06)};
+  --inv-inset: rgba(0, 0, 0, 0.18); // stats band
+  --inv-detail: rgba(0, 0, 0, 0.25); // expanded detail on dark
+
+  // ── timeline ticks ──
+  --bloom-grey: #{rgba($_ink, 0.2)};
+  --tick: #cdc7b6;
+  --tick-q: #a59d88;
+
+  // ── radii ──
+  --radius-pill: 999px;
+  --radius-lg: 14px;
+  --radius-md: 8px;
+  --radius-sm: 6px;
+  --radius-xs: 4px;
+
+  // ── spacing scale ──
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 10px;
+  --sp-4: 14px;
+  --sp-5: 20px;
+  --sp-6: 26px;
+  --sp-7: 32px;
+  --sp-8: 48px;
+
+  // ── shadows ──
+  --shadow-pane: 0 10px 5px #{rgba($_ink, 0.18)};
+  --shadow-inv: -8px 0 5px #{rgba($_ink, 0.4)};
+
+  // --ctrl-h is set at runtime by JS (sticky bar height)
+}

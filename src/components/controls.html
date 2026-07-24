@@ -1,0 +1,33 @@
+<div class="controls" id="controls">
+  <div class="controls-bar">
+    <button class="export-button" id="export-btn" title="Download edited data as JSON">
+      Export Data<span class="edits-badge" id="edits-badge"></span>
+    </button>
+    <h1>Plant Picker</h1>
+    <div class="search-wrap" id="search-wrap">
+      <button class="search-toggle" id="search-toggle" type="button" aria-label="Search by name">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <line x1="15.6" y1="15.6" x2="21" y2="21" />
+        </svg>
+      </button>
+      <input
+        type="text"
+        id="q"
+        placeholder="Search common or botanical name&hellip;"
+        aria-label="Search common or botanical name"
+      />
+    </div>
+    <button class="query-button" id="query-toggle">Query</button>
+    <button class="reset" id="reset">Reset &times;</button>
+  </div>
+</div>
