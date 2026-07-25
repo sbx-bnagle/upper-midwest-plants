@@ -11,12 +11,12 @@
 $_paper: #f0efeb;
 $_paper2: #e7e7e4;
 $_ink: #1a1a1a;
-$_ink-soft: #dadbd9;
+$_ink-soft: #605f59; // secondary text on LIGHT surfaces (>=4.56 on paper2)
 $_green: #3f5a3a;
-$_green-2: #5d7a4e;
+$_green-2: #4c6a37;
 $_green-tint: #cfe0b8;
-$_olive: #7d7a3c;
-$_ochre: #a8632e;
+$_olive: #615e2b;
+$_ochre: #8f4f22;
 $_gold: #b8922f;
 $_grey: #8a8472;
 $_lvl-gold: #f0ac1e;
@@ -65,7 +65,7 @@ $_neon: #4ff062;
   // ── rules, borders & overlays (light surface) ──
   --rule: #{rgba($_ink, 0.13)}; // hairline
   --rule-strong: #{rgba($_ink, 0.35)}; // outlined buttons
-  --ink-faint: #{rgba($_ink, 0.22)}; // empty-cell dots, ghost marks
+  --ink-faint: #67665f; // empty-cell dots (>=4.56 on paper)
   --overlay: #{rgba($_ink, 0.3)}; // inventory backdrop
   --mark-bg: #{rgba($_gold, 0.3)}; // Native <mark>
 

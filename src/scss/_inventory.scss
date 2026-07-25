@@ -11,7 +11,6 @@
   z-index: 200;
   background: var(--inv-bg);
   color: var(--inv-text);
-  box-shadow: var(--shadow-inv);
   transform: translateX(calc(100% - 40px));
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -308,14 +307,50 @@ button.inventory-download:disabled {
   .detail-wrap {
     background: var(--inv-detail);
   }
-  .detail {
-    border-left-color: var(--green-2);
-  }
   .detail-key {
     color: var(--inv-text-faint);
   }
   .detail-value {
     color: var(--inv-text);
+  }
+  // flag colors need light tints on the dark pane to stay >=4.56
+  .flag-note {
+    color: var(--inv-text-faint);
+  }
+  .detail-key.estimated,
+  .flag-note .flag-est {
+    color: #e0a15a;
+  }
+  .detail-key.recommendation,
+  .flag-note .flag-rec {
+    color: #a9cf86;
+  }
+  .detail-key.documented,
+  .flag-note .flag-doc {
+    color: #cbc78a;
+  }
+  // tiered drawer elements on the dark pane
+  .detail-tier-title {
+    color: var(--inv-text);
+    border-bottom-color: var(--inv-rule);
+  }
+  .detail-common {
+    color: var(--inv-text);
+  }
+  .detail-latin {
+    color: var(--inv-text-soft);
+  }
+  .detail-blurb {
+    color: var(--inv-text);
+  }
+  .detail-empty {
+    color: var(--inv-text-faint);
+  }
+  .bool-yes {
+    color: var(--green-tint);
+  }
+  .bool-no {
+    color: #e08b80;
   }
   button.edit-button {
     border-color: var(--inv-text-faint);

@@ -49,8 +49,8 @@ function rowEl(p) {
     // `<div class="cell flag-cell column-drought">${p[K.drought] === 'TRUE' ? '<span class="mobile-label">Drought</span>&#9786;' : ''}</div>` +
     // `<div class="cell flag-cell">${p[K.lowmaint] === 'TRUE' ? '<span class="mobile-label">Low maint</span>&#9786;' : ''}</div>` +
     `<div class="cell column-requirement column-soil"><span class="mobile-label">Soil</span>${esc(p[K.soil]) || '<span class="empty-cell">&middot;</span>'}</div>` +
-    `<div class="cell column-icon"><span class="mobile-label">Light</span>${lv ? levelBars(lv, 'var(--lvl-gold)', esc(p[K.light])) : '<span class="empty-cell">&middot;</span>'}</div>` +
-    `<div class="cell column-icon"><span class="mobile-label">Water</span>${wv ? levelBars(wv, 'var(--lvl-blue)', esc(p[K.water])) : '<span class="empty-cell">&middot;</span>'}</div>` +
+    `<div class="cell column-icon"><span class="mobile-label">Light</span>${lv ? levelBars(lv, 'var(--lvl-gold)', esc(p[K.light]), 4) : '<span class="empty-cell">&middot;</span>'}</div>` +
+    `<div class="cell column-icon"><span class="mobile-label">Water</span>${wv ? levelBars(wv, 'var(--lvl-blue)', esc(p[K.water]), 5) : '<span class="empty-cell">&middot;</span>'}</div>` +
     `</div>` +
     `<div class="cell-group cell-group-design">` +
     `<div class="cell column-dimension column-width"><span class="mobile-label">Width</span>${esc(rng(p[K.smin], p[K.smax])) || '<span class="empty-cell">&middot;</span>'}</div>` +
@@ -98,29 +98,175 @@ function toggle(li, p) {
   li.appendChild(dw);
 }
 
+/* Grouped drawer layout. Each field: k = data key; label overrides the shown
+   name; range = [minKey,maxKey] shown as a span; bool = TRUE\u2192check / else \u2717;
+   full = span the whole grid row. Fields absent here are not displayed;
+   Source, Slug, C/W, and the CSR fields are intentionally omitted. */
+const DETAIL_TIERS = [
+  {
+    // untitled: the intro group sits directly under the name + blurb
+    title: '',
+    fields: [
+      { k: 'Category' },
+      { k: 'Genus' },
+      { k: 'Growth Rate/Lifespan' },
+      { k: 'Zone' },
+      // shown under the name when reading; still editable in edit mode
+      { k: 'Summary Blurb', full: true, editOnly: true },
+    ],
+  },
+  {
+    title: 'Native status',
+    fields: [
+      { k: 'Native Status Tier' },
+      { k: 'Cultivar (Y/N)', label: 'Cultivar' },
+      { k: 'Native Status - Basis' },
+      { k: 'Native to (Level II Ecoregion)' },
+    ],
+  },
+  {
+    title: 'Properties',
+    fields: [
+      { k: 'Habit' },
+      { k: 'Leaf' },
+      { k: 'Flower' },
+      { k: 'Flower Shape' },
+      { label: 'Height', range: ['Height, Min (ft)', 'Height, Max (ft)'] },
+      { label: 'Spread', range: ['Spread, Min (ft)', 'Spread, Max (ft)'] },
+      {
+        label: 'Bloom',
+        calc: (p) => joinParts(p[K.bloomcolor], p[K.bloomtime]),
+        editKeys: [K.bloomcolor, K.bloomtime],
+      },
+      { k: 'Attractive Seedhead Time' },
+      {
+        label: 'Fall Color',
+        calc: (p) => joinParts(p['Fall Leaf Color'], p['Fall Color Time']),
+        editKeys: ['Fall Leaf Color', 'Fall Color Time'],
+      },
+      { k: 'Drought Resistant', bool: true },
+      { k: 'Low Maintenance', bool: true },
+      {
+        label: 'Pollinators Supported',
+        full: true,
+        // count first, then the documented names
+        calc: (p) => {
+          const n = p[POLL_TAXA_KEY],
+            names = p['[DOC] Pollinators Supported (documented, partial)'];
+          const cnt = n != null && String(n).trim() !== '' ? String(n).trim() : '';
+          const list = names != null && String(names).trim() !== '' ? String(names).trim() : '';
+          if (!cnt && !list) return '';
+          if (cnt && list) return `${cnt} — ${list}`;
+          return cnt || list;
+        },
+        editKeys: [POLL_TAXA_KEY, '[DOC] Pollinators Supported (documented, partial)'],
+      },
+      { k: 'Garden Attributes', label: 'Additional Attributes', full: true },
+    ],
+  },
+  {
+    title: 'Requirements',
+    fields: [
+      { k: 'Water Req', label: 'Water' },
+      { k: 'Soil Req', label: 'Soil' },
+      { k: 'Light Req', label: 'Light' },
+    ],
+  },
+  {
+    title: 'Detailed description',
+    fields: [{ k: 'Detailed Description', label: 'Detailed Description', full: true }],
+  },
+  {
+    title: 'Maintenance',
+    fields: [
+      { k: 'Maintenance, General', label: 'General', full: true },
+      { k: 'Maintenance, Early Spring', label: 'Early spring' },
+      { k: 'Maintenance, Late Spring', label: 'Late spring' },
+      { k: 'Maintenance, Early Summer', label: 'Early summer' },
+      { k: 'Maintenance, Mid Summer', label: 'Mid summer' },
+      { k: 'Maintenance, Late Summer', label: 'Late summer' },
+      { k: 'Maintenance, Early Fall', label: 'Early fall' },
+      { k: 'Maintenance, Mid Fall', label: 'Mid fall' },
+      { k: 'Maintenance, Late Fall', label: 'Late fall' },
+    ],
+  },
+  {
+    title: 'Companions',
+    cls: 'detail-tier-companions',
+    fields: [
+      { k: '[REC] Companion - CSR-Matched', label: 'CSR-matched' },
+      { k: '[REC] Companion - Site-Matched (Soil/Water/Light)', label: 'Site-matched' },
+      { k: '[REC] Companion - Complementary Seasonal Interest', label: 'Complementary seasonal interest' },
+    ],
+  },
+];
+const EMPTY_VAL = '<span class="detail-empty">\u2014</span>';
+/* join two related values into one line, tolerating either being blank */
+function joinParts(a, b) {
+  const x = a == null ? '' : String(a).trim(),
+    y = b == null ? '' : String(b).trim();
+  if (x && y) return `${x} \u2014 ${y}`;
+  return x || y;
+}
+function fieldLabel(f) {
+  return (f.label || f.k || '').replace(/^\[(EST|REC|DOC)\]\s*/, '');
+}
+function fieldValueHtml(p, f) {
+  if (f.bool) {
+    return p[f.k] === 'TRUE'
+      ? '<span class="bool-yes" title="Yes">\u2713</span>'
+      : '<span class="bool-no" title="No">\u2717</span>';
+  }
+  if (f.calc) {
+    const v = f.calc(p);
+    return v ? esc(v) : EMPTY_VAL;
+  }
+  if (f.range) {
+    const v = rng(p[f.range[0]], p[f.range[1]]);
+    return v ? esc(v) : EMPTY_VAL;
+  }
+  const v = p[f.k];
+  return v == null || String(v).trim() === '' ? EMPTY_VAL : esc(v);
+}
+
 function renderDetail(el, p, editing) {
-  const hide = new Set([K.com, K.lat, 'tier_group', 'C', 'W', '__id']);
-  const skip = (k) => k.startsWith('Image -') || k === 'Drive Image ID';
-  let items = '';
-  Object.keys(p).forEach((k) => {
-    if (hide.has(k) || skip(k)) return;
-    const v = p[k];
-    let cls = 'detail-key';
-    if (k.startsWith('[EST]')) cls += ' estimated';
-    else if (k.startsWith('[REC]')) cls += ' recommendation';
-    else if (k.startsWith('[DOC]')) cls += ' documented';
-    if (editing) {
-      items += `<div class="detail-item"><span class="${cls}">${esc(k)}</span><input class="edit-field" data-field="${esc(k)}" value="${esc(v == null ? '' : v)}"></div>`;
-    } else {
-      if (v == null || v === '') return;
-      items += `<div class="detail-item"><span class="${cls}">${esc(k)}</span><span class="detail-value">${esc(v)}</span></div>`;
-    }
+  const cm = esc(p[K.com]),
+    lat = esc(p[K.lat]);
+  const blurb = p['Summary Blurb'];
+  const blurbHtml =
+    blurb != null && String(blurb).trim() !== ''
+      ? `<p class="detail-blurb">${esc(String(blurb).trim())}</p>`
+      : '';
+  const nameHtml = `<div class="detail-name">${cm ? `<span class="detail-common">${cm}</span>` : ''}<span class="detail-latin">${lat}</span></div>${blurbHtml}`;
+  let tiersHtml = '';
+  DETAIL_TIERS.forEach((tier) => {
+    let rows = '';
+    tier.fields.forEach((f) => {
+      if (f.editOnly && !editing) return;
+      const label = esc(fieldLabel(f));
+      const full = f.full ? ' detail-item-full' : '';
+      const keyCls = f.k && f.k.startsWith('[EST]') ? 'detail-key estimated' : 'detail-key';
+      if (editing) {
+        const keys = f.editKeys || (f.range ? f.range : [f.k]);
+        keys.forEach((rk, i) => {
+          if (!rk) return;
+          const lab = f.range ? `${label} ${i === 0 ? 'min' : 'max'}` : f.editKeys ? fieldLabel({ k: rk }) : label;
+          const val = p[rk] == null ? '' : p[rk];
+          rows += `<div class="detail-item${full}"><span class="detail-key">${esc(lab)}</span><input class="edit-field" data-field="${esc(rk)}" value="${esc(val)}"></div>`;
+        });
+      } else {
+        rows += `<div class="detail-item${full}"><span class="${keyCls}">${label}</span><span class="detail-value">${fieldValueHtml(p, f)}</span></div>`;
+      }
+    });
+    const head = tier.title ? `<h4 class="detail-tier-title">${esc(tier.title)}</h4>` : '';
+    let cls = tier.title ? 'detail-tier' : 'detail-tier detail-tier-untitled';
+    if (tier.cls) cls += ' ' + tier.cls;
+    tiersHtml += `<div class="${cls}">${head}<div class="detail-grid">${rows}</div></div>`;
   });
-  const cw = `<div class="detail-item"><span class="detail-key">C / Wetness W [Chicago FQA]</span><span class="detail-value">${p.C != null ? p.C : '\u2014'} / ${p.W != null ? p.W : '\u2014'}</span></div>`;
   const bar = editing
     ? `<div class="edit-bar"><button class="edit-button primary" data-act="save">Save changes</button><button class="edit-button" data-act="cancel">Cancel</button></div>`
     : `<div class="edit-bar"><button class="edit-button" data-act="edit">Edit data</button></div>`;
-  el.innerHTML = `<div class="detail">${bar}<div class="flag-note"><span><b style="color:var(--ochre)">[EST]</b> estimated</span><span><b style="color:var(--green-2)">[REC]</b> recommendation</span><span><b style="color:var(--olive)">[DOC]</b> documented</span></div><div class="detail-grid">${editing ? '' : cw}${items}</div></div>`;
+  el.innerHTML = `<div class="detail">${nameHtml}${tiersHtml}${bar}</div>`;
   el.querySelector('[data-act="edit"]')?.addEventListener('click', (e) => {
     e.stopPropagation();
     renderDetail(el, p, true);

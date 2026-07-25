@@ -6,7 +6,10 @@
   z-index: 20;
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
-  padding: var(--sp-5) 0 0;
+  // bleed 16px each side to mask the drawer's wider grey panel when scrolling
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  padding: var(--sp-5) 16px 0;
   margin-top: 160px;
 }
 

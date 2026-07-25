@@ -130,7 +130,10 @@ function init() {
     },
     { rootMargin: '400px' },
   ).observe($('sentinel'));
-  window.addEventListener('scroll', () => $('totop').classList.toggle('visible', scrollY > 500));
+  window.addEventListener('scroll', () => {
+    $('totop').classList.toggle('visible', scrollY > 500);
+    updateCtrlH(); // keep the query pane glued to the bar's bottom rule
+  });
   window.addEventListener('resize', updateCtrlH);
   $('inv-pane').onclick = (e) => {
     if (!$('inv-pane').classList.contains('open')) {

@@ -147,7 +147,7 @@ function timeline(p) {
     const col = pickColor(p[K.bloomcolor]) || 'rgba(35,33,27,.22)';
     mo.forEach((i) => {
       const vis = (i - 2 + 12) % 12;
-      g += `<rect x="${(vis * SEG + 1.5).toFixed(1)}" y="6" width="${(SEG - 3).toFixed(1)}" height="11" rx="1.5" fill="${col}"/>`;
+      g += `<rect x="${(vis * SEG + 1.5).toFixed(1)}" y="7.5" width="${(SEG - 3).toFixed(1)}" height="11" rx="1.5" fill="${col}"/>`;
     });
   }
   return `<svg class="timeline-svg" viewBox="0 0 ${TLW} ${TLH}" width="${TLW}" height="${TLH}">${g}</svg>`;
@@ -155,10 +155,10 @@ function timeline(p) {
 
 /* ── Level bars ──────────────────────────────────────────────────────────── */
 /* number + 5 stacked bars; the bottom `level` bars take the passed color
-   (gold = light, blue = water), the rest stay grey (--lvl-off). Always 5 bars
-   so the meters line up; the number states the level. */
-function levelBars(level, color, title) {
-  const MAX = 5;
+   (gold = light, blue = water), the rest stay grey (--lvl-off). `max` sets the
+   number of bars (water = 5, light = 4); the number states the level. */
+function levelBars(level, color, title, max) {
+  const MAX = max || 5;
   let bars = '';
   for (let i = 0; i < MAX; i++) {
     const on = i >= MAX - level; // fill from the bottom up

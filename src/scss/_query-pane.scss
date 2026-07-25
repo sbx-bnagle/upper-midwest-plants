@@ -2,14 +2,15 @@
 /* ── Query pane: fixed overlay anchored below sticky bar ─────────────────── */
 .query-pane {
   position: fixed;
-  top: var(--ctrl-h, 52px);
-  right: 0;
+  top: calc(var(--ctrl-h, 52px) - 1px); // pull up 1px so the top border sits on the bar's rule
+  right: 40px; // clear the 40px closed-inventory spine on the right
   z-index: 100;
   width: min(380px, 100vw);
   max-height: calc(100vh - var(--ctrl-h, 52px));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: var(--paper);
+  border-top: 1px solid var(--rule);
   border-left: 1px solid var(--rule);
   padding: 0 20px 28px;
   opacity: 0;

@@ -239,7 +239,10 @@ function buildDualSlider(cid, sMinKey, sMaxKey, lo, hi, step) {
 
 /* ── Sync / reset ────────────────────────────────────────────────────────── */
 function updateCtrlH() {
-  document.documentElement.style.setProperty('--ctrl-h', $('controls').offsetHeight + 'px');
+  // use the sticky bar's live viewport-bottom so the query pane's top always
+  // meets the rule beneath the bar, at any scroll position
+  const b = Math.round($('controls').getBoundingClientRect().bottom);
+  document.documentElement.style.setProperty('--ctrl-h', (b > 0 ? b : 52) + 'px');
 }
 function syncReset() {
   const any =
