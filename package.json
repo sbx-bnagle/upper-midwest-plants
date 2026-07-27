@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "gulp watch",
     "build": "gulp build",
-    "package": "gulp package"
+    "package": "gulp package",
+    "habits": "node tools/normalize-habits.js",
+    "habits:write": "node tools/normalize-habits.js --write",
+    "validate": "node tools/validate-sources.js",
+    "validate:network": "node tools/validate-sources.js --network",
+    "validate:strict": "node tools/validate-sources.js --network --strict"
   },
   "devDependencies": {
     "gulp": "^5.0.0",
@@ -16,6 +21,7 @@
     "gulp-sass": "^6.0.0",
     "gulp-terser": "^2.1.0",
     "html-minifier-terser": "^7.2.0",
+    "pdf-parse": "^2.4.5",
     "prettier": "^3.8.4",
     "sass": "^1.77.0"
   }

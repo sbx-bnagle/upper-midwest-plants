@@ -35,11 +35,12 @@ function scripts() {
 }
 
 function data(cb) {
-  // PLANTS + K from /data → dist/js/data.js (compact JSON)
+  // PLANTS + K + MAINT from /data → dist/js/data.js (compact JSON)
   const plants = JSON.stringify(JSON.parse(fs.readFileSync('data/plants.json', 'utf8')));
   const k = JSON.stringify(JSON.parse(fs.readFileSync('data/tkeys.json', 'utf8')));
+  const maint = JSON.stringify(JSON.parse(fs.readFileSync('data/maintenance-rules.json', 'utf8')));
   fs.mkdirSync('dist/js', { recursive: true });
-  fs.writeFileSync('dist/js/data.js', `const PLANTS=${plants};const K=${k};`);
+  fs.writeFileSync('dist/js/data.js', `const PLANTS=${plants};const K=${k};const MAINT=${maint};`);
   cb();
 }
 

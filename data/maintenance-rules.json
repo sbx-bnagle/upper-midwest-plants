@@ -1,0 +1,4206 @@
+{
+  "schemaVersion": 1,
+  "region": "Upper Midwest (USDA zones 3-5). Season names are phenological, not calendar-locked: 'early spring' means as frost leaves and growth breaks, roughly late March-April in zone 4-5.",
+  "statusLegend": {
+    "verified": "Checked against a cited source for this specific plant or genus. Safe for client deliverables.",
+    "general": "Standard horticultural practice for this plant type. Defensible, but not plant-specific or source-checked.",
+    "draft": "Placeholder. Must be reviewed and sourced before it goes in a client deliverable."
+  },
+  "conflictPolicy": [
+    {
+      "id": "overwinter-habitat-wins",
+      "season": "lateFall",
+      "prefer": "leave-stems",
+      "suppress": "cutback",
+      "reason": "Overwintering habitat takes precedence in late fall. A genus-level 'cut back after flowering' directive (typically given for self-seeding control or tidiness) is deferred to spring rather than applied in late fall, so standing stems remain available to cavity-nesting bees and overwintering pupae. The suppressed directive is not deleted — it stays in the genus rule and still applies in its other seasons — and the leave-stems note carries the spring cut-back instruction."
+    }
+  ],
+  "seasonFields": {
+    "general": "Maintenance, General",
+    "earlySpring": "Maintenance, Early Spring",
+    "lateSpring": "Maintenance, Late Spring",
+    "earlySummer": "Maintenance, Early Summer",
+    "midSummer": "Maintenance, Mid Summer",
+    "lateSummer": "Maintenance, Late Summer",
+    "earlyFall": "Maintenance, Early Fall",
+    "midFall": "Maintenance, Mid Fall",
+    "lateFall": "Maintenance, Late Fall"
+  },
+  "vocabulary": {
+    "cutback": {
+      "label": "Cut back",
+      "guide": "Cut stems down to the base or crown."
+    },
+    "deadhead": {
+      "label": "Deadhead",
+      "guide": "Remove spent flowers where this plant responds — rebloom, or seeding that needs controlling."
+    },
+    "deadleaf": {
+      "label": "Deadleaf",
+      "guide": "Remove damaged or spent foliage where a plant needs it specifically (evergreen vs. browning-out habit). Routine tidying is garden-wide guidance."
+    },
+    "shear": {
+      "label": "Shear",
+      "guide": "Trim the whole clump uniformly as a mid-season reset."
+    },
+    "prune": {
+      "label": "Prune",
+      "guide": "Make structural cuts on woody growth."
+    },
+    "thin": {
+      "label": "Thin",
+      "guide": "Remove whole stems to improve airflow or renew the plant."
+    },
+    "pinch": {
+      "label": "Pinch",
+      "guide": "Pinch tips early to encourage branching and limit height."
+    },
+    "divide": {
+      "label": "Divide",
+      "guide": "Lift and split the clump to maintain vigor."
+    },
+    "edit-seedlings": {
+      "label": "Edit seedlings",
+      "guide": "Thin volunteer seedlings to keep the planting in bounds."
+    },
+    "contain": {
+      "label": "Contain",
+      "guide": "Limit rhizome or sucker spread on plants that actually run."
+    },
+    "water-establish": {
+      "label": "Water to establish",
+      "guide": "Plant-specific establishment watering — used only where a source ties it to this plant (e.g. shallow-rooted crowns). General establishment watering is garden-wide guidance."
+    },
+    "water-deep": {
+      "label": "Water deeply",
+      "guide": "Water deeply and infrequently once established."
+    },
+    "mulch": {
+      "label": "Mulch",
+      "guide": "Apply or refresh mulch where this plant needs it (frost heave, moisture, crown protection)."
+    },
+    "stake": {
+      "label": "Stake",
+      "guide": "Support tall or floppy stems on plants known to need it."
+    },
+    "space": {
+      "label": "Space",
+      "guide": "Maintain spacing and airflow to limit disease."
+    },
+    "plant-timing": {
+      "label": "Planting window",
+      "guide": "Best window for planting or transplanting."
+    },
+    "leave-stems": {
+      "label": "Leave stems",
+      "guide": "Leave stems standing over winter for cavity-nesting insects."
+    },
+    "leave-seedheads": {
+      "label": "Leave seedheads",
+      "guide": "Leave seed standing for birds."
+    },
+    "monitor": {
+      "label": "Monitor",
+      "guide": "Watch for a specific pest or disease."
+    }
+  },
+  "archetypes": [
+    {
+      "id": "flower-upright-clump",
+      "match": {
+        "category": "flower",
+        "habitAny": [
+          "upright clump",
+          "clump",
+          "vertical spike",
+          "vertical/architectural",
+          "architectural rosette",
+          "arching clump",
+          "arching",
+          "fountain clump"
+        ]
+      },
+      "note": "Largest group in the catalog (300 plants). habitAny absorbs the free-text habit variants present in the data.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut last year's dead flower stalks back in spring rather than fall, leaving stubble of varying height (8-24 in.) so stem-nesting bees still have cavities. New growth hides the stubble, and the old stubble decomposes on its own.",
+            "status": "verified",
+            "source": {
+              "url": "https://xerces.org/sites/default/files/publications/22-005_01_web-screen.pdf",
+              "title": "Save the Stems: How to Create Habitat for Stem-Nesting Bees — Xerces Society",
+              "quote": "Cut back dead flower stalks leaving stem stubble of varying height, 8 to 24 inches, to provide nest cavities."
+            }
+          },
+          {
+            "tag": "divide",
+            "note": "Divide when the clump dies out in its center, or when flowers and leaves come in smaller and bloom drops off.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/gardening-minnesota/dividing-perennials",
+              "title": "How and when to divide perennials — UMN Extension",
+              "quote": "A perennial should be divided when it dies out in the middle (the oldest part) of the plant, produces smaller flowers or leaves, and blooms less."
+            }
+          }
+        ],
+        "earlyFall": [
+          {
+            "tag": "leave-seedheads",
+            "status": "verified",
+            "note": "Leave late-summer flowers and seed heads standing rather than cutting in fall: they carry winter texture and feed overwintering birds. Cut back in spring.",
+            "source": {
+              "url": "https://extension.umn.edu/yard-and-garden-news/plants-add-winter-interest",
+              "title": "Plants can add winter interest to your landscape — UMN Extension",
+              "quote": "Wait till spring to cut back late summer flowers and seed heads. They provide interest and texture, but also food for overwintering birds."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "note": "Leave stalks and stems standing over winter — they house nesting bees and anchor overwintering pupae. Cut back in spring, and even then at varying heights (8-24 in.) rather than to the ground, so new nesting cavities stay available.",
+            "status": "verified",
+            "source": {
+              "url": "https://xerces.org/blog/put-down-those-pruners-pollinators-need-your-garden-garbage",
+              "title": "Put Down Those Pruners: Pollinators Need Your 'Garden Garbage!' | Xerces Society",
+              "quote": "Don't cut canes, stalks, or other standing plant material which may house nesting bees or be providing anchors for overwintering pupae."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "flower-mound",
+      "match": {
+        "category": "flower",
+        "habitAny": [
+          "mound",
+          "rounded mound",
+          "mound (ephemeral)",
+          "shrub-like mound",
+          "mounding sprawl"
+        ]
+      },
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide when the mound dies out in its center, or when flowers and leaves come in smaller and bloom drops off.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/gardening-minnesota/dividing-perennials",
+              "title": "How and when to divide perennials — UMN Extension",
+              "quote": "A perennial should be divided when it dies out in the middle (the oldest part) of the plant, produces smaller flowers or leaves, and blooms less."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "status": "verified",
+            "note": "Leave stems standing over winter for cavity-nesting bees; when cutting back, leave stubs of 5 in. or more in place rather than clearing to the ground.",
+            "source": {
+              "url": "https://extension.umn.edu/lawns-and-landscapes/pollinator-nests",
+              "title": "Nests for pollinators — UMN Extension",
+              "quote": "Cut to five inches or more and leave them in the garden for two years."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "flower-spreading",
+      "match": {
+        "category": "flower",
+        "habitAny": [
+          "spreading clump",
+          "spreading mound",
+          "spreading mat"
+        ]
+      },
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "status": "verified",
+            "note": "Cut last year's dead flower stalks back in spring rather than fall, leaving stubble of varying height (8-24 in.) so stem-nesting bees still have cavities. New growth hides the stubble, and the old stubble decomposes on its own.",
+            "source": {
+              "url": "https://xerces.org/sites/default/files/publications/22-005_01_web-screen.pdf",
+              "title": "Save the Stems: How to Create Habitat for Stem-Nesting Bees — Xerces Society",
+              "quote": "Cut back dead flower stalks leaving stem stubble of varying height, 8 to 24 inches, to provide nest cavities."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "status": "verified",
+            "note": "Leave stems standing over winter for cavity-nesting bees; when cutting back, leave stubs of 5 in. or more in place rather than clearing to the ground.",
+            "source": {
+              "url": "https://extension.umn.edu/lawns-and-landscapes/pollinator-nests",
+              "title": "Nests for pollinators — UMN Extension",
+              "quote": "Cut to five inches or more and leave them in the garden for two years."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shrub-rounded",
+      "match": {
+        "category": "shrub",
+        "habitAny": [
+          "rounded shrub",
+          "rounded mound",
+          "mound"
+        ]
+      },
+      "note": "205 plants. Pruning timing depends on whether the shrub blooms on old or new wood — set that at genus level.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Confirm whether this shrub blooms on old or new wood before pruning: early-spring bloomers on last year's growth should be pruned right after they finish flowering, while shrubs that bloom on new growth (or are grown mainly for foliage) are pruned in late winter/early spring before growth begins.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning Trees and Shrubs — UMN Extension",
+              "quote": "Trees and shrubs that bloom early in the growing season on last year's growth should be pruned immediately after they finish blooming"
+            }
+          },
+          {
+            "tag": "water-deep",
+            "status": "verified",
+            "note": "Water deeply over the whole root zone until the top 6-9 in. of soil is moist; light, frequent watering just builds shallow roots that suffer in summer heat.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/watering-established-trees-and-shrubs",
+              "title": "Watering established trees and shrubs — UMN Extension",
+              "quote": "Avoid light watering as this promotes shallow root systems that are susceptible to summer heat and drought stress."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "thin",
+            "note": "Remove dead or dying branches injured by disease, insects, animals, storms or mechanical damage; where two limbs cross or compete, take one out at its base.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning trees and shrubs — UMN Extension",
+              "quote": "Remove dead or dying branches injured by disease, severe insect infestation, animals, storms, or other adverse mechanical damage."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "note": "A 4-6 in. mulch layer prevents frost heaving by holding soil temperatures steadier through freeze-thaw cycles.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/protecting-trees-and-shrubs-winter",
+              "title": "Protecting trees and shrubs in winter — UMN Extension",
+              "quote": "A 4- to 6-inch layer of mulch will prevent heaving by maintaining more constant soil temperatures."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shrub-upright",
+      "match": {
+        "category": "shrub",
+        "habitAny": [
+          "upright shrub",
+          "upright",
+          "upright clump",
+          "arching shrub",
+          "thicket-forming shrub",
+          "vertical spike"
+        ]
+      },
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Confirm whether this shrub blooms on old or new wood before pruning: early-spring bloomers on last year's growth should be pruned right after they finish flowering, while shrubs that bloom on new growth (or are grown mainly for foliage) are pruned in late winter/early spring before growth begins.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning Trees and Shrubs — UMN Extension",
+              "quote": "Trees and shrubs that bloom early in the growing season on last year's growth should be pruned immediately after they finish blooming"
+            }
+          },
+          {
+            "tag": "water-deep",
+            "status": "verified",
+            "note": "Water deeply over the whole root zone until the top 6-9 in. of soil is moist; light, frequent watering just builds shallow roots that suffer in summer heat.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/watering-established-trees-and-shrubs",
+              "title": "Watering established trees and shrubs — UMN Extension",
+              "quote": "Avoid light watering as this promotes shallow root systems that are susceptible to summer heat and drought stress."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "thin",
+            "note": "Renewal-prune: each year take up to a third of the oldest, thickest stems right down to the ground to push new growth from the roots.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning trees and shrubs — UMN Extension",
+              "quote": "Every year remove up to one-third of the oldest, thickest stems or trunks, taking them right down to the ground."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "status": "verified",
+            "note": "A 4-6 in. mulch layer prevents frost heaving by holding soil temperatures steadier through freeze-thaw cycles.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/protecting-trees-and-shrubs-winter",
+              "title": "Protecting trees and shrubs in winter — UMN Extension",
+              "quote": "A 4- to 6-inch layer of mulch will prevent heaving by maintaining more constant soil temperatures."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shrub-spreading",
+      "match": {
+        "category": "shrub",
+        "habitAny": [
+          "spreading mat",
+          "spreading shrub",
+          "spreading clump",
+          "spreading mound"
+        ]
+      },
+      "tasks": {
+        "general": [
+          {
+            "tag": "water-deep",
+            "status": "verified",
+            "note": "Water deeply over the whole root zone until the top 6-9 in. of soil is moist; light, frequent watering just builds shallow roots that suffer in summer heat.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/watering-established-trees-and-shrubs",
+              "title": "Watering established trees and shrubs — UMN Extension",
+              "quote": "Avoid light watering as this promotes shallow root systems that are susceptible to summer heat and drought stress."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "thin",
+            "note": "Remove dead or dying branches injured by disease, insects, animals, storms or mechanical damage.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning trees and shrubs — UMN Extension",
+              "quote": "Remove dead or dying branches injured by disease, severe insect infestation, animals, storms, or other adverse mechanical damage."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "status": "verified",
+            "note": "A 4-6 in. mulch layer prevents frost heaving by holding soil temperatures steadier through freeze-thaw cycles.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/protecting-trees-and-shrubs-winter",
+              "title": "Protecting trees and shrubs in winter — UMN Extension",
+              "quote": "A 4- to 6-inch layer of mulch will prevent heaving by maintaining more constant soil temperatures."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "flower-any",
+      "match": {
+        "category": "flower"
+      },
+      "note": "Category fallback — catches habit values not covered above so no plant resolves empty.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut last year's dead flower stalks back in spring rather than fall, leaving stubble of varying height (8-24 in.) so stem-nesting bees still have cavities. New growth hides the stubble, and the old stubble decomposes on its own.",
+            "status": "verified",
+            "source": {
+              "url": "https://xerces.org/sites/default/files/publications/22-005_01_web-screen.pdf",
+              "title": "Save the Stems: How to Create Habitat for Stem-Nesting Bees — Xerces Society",
+              "quote": "Cut back dead flower stalks leaving stem stubble of varying height, 8 to 24 inches, to provide nest cavities."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "status": "verified",
+            "note": "Leave stems standing over winter for cavity-nesting bees; when cutting back, leave stubs of 5 in. or more in place rather than clearing to the ground.",
+            "source": {
+              "url": "https://extension.umn.edu/lawns-and-landscapes/pollinator-nests",
+              "title": "Nests for pollinators — UMN Extension",
+              "quote": "Cut to five inches or more and leave them in the garden for two years."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shrub-any",
+      "match": {
+        "category": "shrub"
+      },
+      "note": "Category fallback — includes records with a blank Habit.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Confirm whether this shrub blooms on old or new wood before pruning: early-spring bloomers on last year's growth should be pruned right after they finish flowering, while shrubs that bloom on new growth (or are grown mainly for foliage) are pruned in late winter/early spring before growth begins.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning Trees and Shrubs — UMN Extension",
+              "quote": "Trees and shrubs that bloom early in the growing season on last year's growth should be pruned immediately after they finish blooming"
+            }
+          },
+          {
+            "tag": "water-deep",
+            "status": "verified",
+            "note": "Water deeply over the whole root zone until the top 6-9 in. of soil is moist; light, frequent watering just builds shallow roots that suffer in summer heat.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/watering-established-trees-and-shrubs",
+              "title": "Watering established trees and shrubs — UMN Extension",
+              "quote": "Avoid light watering as this promotes shallow root systems that are susceptible to summer heat and drought stress."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "thin",
+            "note": "Remove dead or dying branches injured by disease, insects, animals, storms or mechanical damage; where two limbs cross or compete, take one out at its base.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning trees and shrubs — UMN Extension",
+              "quote": "Remove dead or dying branches injured by disease, severe insect infestation, animals, storms, or other adverse mechanical damage."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "status": "verified",
+            "note": "A 4-6 in. mulch layer prevents frost heaving by holding soil temperatures steadier through freeze-thaw cycles.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/protecting-trees-and-shrubs-winter",
+              "title": "Protecting trees and shrubs in winter — UMN Extension",
+              "quote": "A 4- to 6-inch layer of mulch will prevent heaving by maintaining more constant soil temperatures."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "grass",
+      "match": {
+        "category": "grass"
+      },
+      "tasks": {
+        "general": [
+          {
+            "tag": "water-deep",
+            "status": "verified",
+            "note": "Water deeply over the whole root zone until the top 6-9 in. of soil is moist; light, frequent watering just builds shallow roots that suffer in summer heat.",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/watering-established-trees-and-shrubs",
+              "title": "Watering established trees and shrubs — UMN Extension",
+              "quote": "Avoid light watering as this promotes shallow root systems that are susceptible to summer heat and drought stress."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut back to 2-4 in. above the ground with shears or a trimmer before new growth emerges; cutting after green-up leaves cut tips visible all season.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/faq/when-should-i-cut-back-my-ornamental-grasses",
+              "title": "When should I cut back my ornamental grasses? — Iowa State University Extension and Outreach",
+              "quote": "Cut back the grasses to within 2 to 4 inches of the ground with hand shears, lopping shears, or hedge trimmers"
+            }
+          },
+          {
+            "tag": "divide",
+            "note": "Divide in spring: plants divided then have the whole growing season to re-establish before winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/gardening-minnesota/dividing-perennials",
+              "title": "How and when to divide perennials — UMN Extension",
+              "quote": "Plants divided in spring have the entire growing season to recover before winter."
+            }
+          }
+        ],
+        "earlyFall": [
+          {
+            "tag": "leave-seedheads",
+            "note": "Leave late-summer flowers and seed heads standing rather than cutting in fall: they carry winter texture and feed overwintering birds. Cut back in spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/yard-and-garden-news/plants-add-winter-interest",
+              "title": "Plants can add winter interest to your landscape — UMN Extension",
+              "quote": "Wait till spring to cut back late summer flowers and seed heads. They provide interest and texture, but also food for overwintering birds."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "note": "Leave stems standing over winter for cavity-nesting bees; when cutting back, leave stubs of 5 in. or more in place rather than clearing to the ground.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/lawns-and-landscapes/pollinator-nests",
+              "title": "Nests for pollinators — UMN Extension",
+              "quote": "Cut to five inches or more and leave them in the garden for two years."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "sedge",
+      "match": {
+        "category": "sedge"
+      },
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "deadleaf",
+            "note": "Most Carex are not reliably evergreen this far north and brown out over winter — cut foliage to the ground in late winter/early spring before new growth starts. A few truly evergreen selections only need old leaves combed out by hand rather than sheared.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279740",
+              "title": "Carex morrowii — Missouri Botanical Garden Plant Finder",
+              "quote": "is not evergreen near the northern edge of its growing range"
+            }
+          },
+          {
+            "tag": "divide",
+            "status": "verified",
+            "note": "Divide in spring: plants divided then have the whole growing season to re-establish before winter.",
+            "source": {
+              "url": "https://extension.umn.edu/gardening-minnesota/dividing-perennials",
+              "title": "How and when to divide perennials — UMN Extension",
+              "quote": "Plants divided in spring have the entire growing season to recover before winter."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "fern",
+      "match": {
+        "category": "fern"
+      },
+      "tasks": {
+        "general": [
+          {
+            "tag": "mulch",
+            "note": "Keep a 2-3 in. organic mulch layer around the crown to hold soil moisture and protect roots.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/how/water-wisely-start-your-own-backyard",
+              "title": "Water Wisely: Start in your own backyard — UMN Extension",
+              "quote": "Add 2 to 3 inches of organic mulch to conserve moisture in the soil and protect roots."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "note": "Leave fronds in place over winter as crown protection.",
+            "status": "general"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vine",
+      "match": {
+        "category": "vine"
+      },
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Pruning group depends on genus and bloom wood — set at genus level.",
+            "status": "general"
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "thin",
+            "note": "On marginally hardy stems (clematis, shrub roses), prune back to live wood.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning trees and shrubs — UMN Extension",
+              "quote": "Plants with marginally hardy stems such as clematis and shrub roses should be pruned back to live wood."
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "modifiers": [
+    {
+      "id": "has-seedhead",
+      "when": {
+        "fieldPresent": "Attractive Seedhead Time"
+      },
+      "add": {
+        "season": "earlyFall",
+        "tag": "leave-seedheads",
+        "note": "Leave late-summer flowers and seed heads standing rather than cutting in fall: they carry winter texture and feed overwintering birds. Cut back in spring.",
+        "status": "verified",
+        "source": {
+          "url": "https://extension.umn.edu/yard-and-garden-news/plants-add-winter-interest",
+          "title": "Plants can add winter interest to your landscape — UMN Extension",
+          "quote": "Wait till spring to cut back late summer flowers and seed heads. They provide interest and texture, but also food for overwintering birds."
+        }
+      }
+    },
+    {
+      "id": "dry-site",
+      "when": {
+        "fieldContains": {
+          "field": "Water Req",
+          "value": "dry"
+        }
+      },
+      "add": {
+        "season": "general",
+        "tag": "water-deep",
+        "note": "Water deeply but less often — it drives deeper rooting and better drought tolerance than frequent light watering.",
+        "status": "verified",
+        "source": {
+          "url": "https://extension.umn.edu/how/water-wisely-start-your-own-backyard",
+          "title": "Water Wisely: Start in your own backyard — UMN Extension",
+          "quote": "Water deeply, but less often, to encourage root growth and drought tolerance."
+        }
+      }
+    },
+    {
+      "id": "short-lived",
+      "when": {
+        "fieldContains": {
+          "field": "Growth Rate/Lifespan",
+          "value": "short-lived"
+        }
+      },
+      "add": {
+        "season": "lateSummer",
+        "tag": "edit-seedlings",
+        "note": "Short-lived; keep a few volunteers each year to maintain the stand.",
+        "status": "general"
+      }
+    }
+  ],
+  "genera": {
+    "Hydrangea": [
+      {
+        "note": "51 plants — the largest genus in the catalog. Pruning is the single most consequential call and it splits by species. One plant (Climbing Hydrangea) is a true vine and is handled separately below — it is NOT pruned like the shrub types.",
+        "tasks": {
+          "general": [
+            {
+              "tag": "prune",
+              "note": "H. arborescens (smooth hydrangea): once established, prune in spring down to the ground; blooms on new wood. H. paniculata (panicle hydrangea): prune back to a fat bud in fall, late winter, or spring. H. macrophylla (bigleaf hydrangea): buds form in late summer/early fall for next year, so prune right after flowering and before August, or you remove next year's blooms.",
+              "status": "verified",
+              "source": {
+                "url": "https://extension.umn.edu/trees-and-shrubs/pruning-hydrangeas",
+                "title": "Pruning hydrangeas | UMN Extension",
+                "quote": "Let these plants grow a season or two before doing any hard pruning. Once the shrub is established and has a couple of growing seasons, prune these hydrangeas in the spring down to the ground."
+              }
+            }
+          ],
+          "midSummer": [
+            {
+              "tag": "water-deep",
+              "note": "Large leaves wilt in afternoon heat; check soil before watering a wilted plant.",
+              "status": "general"
+            }
+          ]
+        }
+      },
+      {
+        "match": {
+          "category": "vine"
+        },
+        "note": "Climbing Hydrangea (H. anomala subsp. petiolaris) — a true climbing vine, unlike the rest of the genus. Overrides the shrub-species prune note above for this plant only.",
+        "tasks": {
+          "general": [
+            {
+              "tag": "prune",
+              "note": "A true climbing vine that flowers on old wood, not one of the shrub types above — needs little pruning. If size control is needed, prune right after flowering finishes; pruning at other times removes next year's flower buds.",
+              "status": "verified",
+              "source": {
+                "url": "https://extension.illinois.edu/blogs/good-growing/2022-03-10-how-properly-prune-hydrangeas",
+                "title": "How to properly prune hydrangeas — Illinois Extension",
+                "quote": "Climbing hydrangea (H. anomala subsp. petiolaris) is a climbing vine that can reach up to 40 feet high. White flowers form as flattened clusters up to 8 inches wide. When pruning this hydrangea, it should be done after the flowers have faded as flowers form on old wood."
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Phlox": [
+      {
+        "match": {
+          "category": "flower"
+        },
+        "note": "27 plants total in the genus, split across two very different care profiles. This variant covers garden/woodland phlox (upright clump, mound, spreading mound), where powdery mildew is the defining maintenance issue. Moss phlox (creeping groundcover) is handled separately below.",
+        "tasks": {
+          "general": [
+            {
+              "tag": "space",
+              "note": "Give generous spacing and airflow; crowding drives powdery mildew.",
+              "status": "general"
+            },
+            {
+              "tag": "monitor",
+              "note": "Powdery mildew in hot, humid weather, especially under stress from heat or drought. Resistance varies sharply by cultivar — Mt. Cuba's 3-year trial of 94 selections found the top performers (led by 'Jeana') were almost all U.S.-origin selections, not the European cultivars often marketed as resistant.",
+              "status": "verified",
+              "source": {
+                "url": "https://mtcubacenter.org/spotlight-on-phlox/",
+                "title": "Spotlight on Phlox — Mt. Cuba Center",
+                "quote": "There are different disease pressures in Europe, so cultivars advertised as disease-resistant may not live up to that description."
+              }
+            }
+          ],
+          "midSummer": [
+            {
+              "tag": "shear",
+              "note": "Shear browning flowering stems back to green foliage.",
+              "status": "general"
+            }
+          ]
+        }
+      },
+      {
+        "match": {
+          "category": "shrub",
+          "habitAny": [
+            "spreading mat"
+          ]
+        },
+        "note": "Moss/creeping phlox (Phlox subulata) — a low evergreen groundcover, not mildew-prone the way tall garden phlox is. Does not inherit the flower-variant tasks above.",
+        "tasks": {
+          "midSummer": [
+            {
+              "tag": "shear",
+              "note": "Shear lightly after flowering finishes to keep the mat tight and encourage denser regrowth; prefers well-drained soil that isn't overly rich.",
+              "status": "verified",
+              "source": {
+                "url": "https://hgic.clemson.edu/factsheet/groundcovers/",
+                "title": "Groundcovers: Planting and Care — Clemson HGIC",
+                "quote": "Well-drained soil that is not overly rich. Shear lightly after flowering is finished."
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Heuchera": {
+      "note": "27 plants.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "plant-timing",
+            "note": "Spring planting is optimal.",
+            "status": "general"
+          },
+          {
+            "tag": "water-establish",
+            "note": "Shallow root system — give supplemental water while plants are establishing.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/article/2021/06/heuchera-or-coral-bells",
+              "title": "Heuchera or Coral Bells — Iowa State University Extension and Outreach",
+              "quote": "Plants have shallow root systems, thus they may need supplemental water during establishment."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "deadleaf",
+            "note": "Shear off winter-damaged leaves and old flower stalks.",
+            "status": "general"
+          },
+          {
+            "tag": "divide",
+            "note": "Divide clumps in spring every 3-4 years.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a341",
+              "title": "Heuchera villosa 'Autumn Bride' - Plant Finder",
+              "quote": "Divide clumps in spring every 3-4 years."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "note": "Newly planted Heuchera are especially prone to frost heave in their first winter, as freeze-thaw cycles lift the shallow-rooted crown out of the soil; mulch heavily after the first hard frost to buffer temperature swings and add weight. Plants are less at risk once the root system is established after a couple of years.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/article/2021/06/heuchera-or-coral-bells",
+              "title": "Heuchera or Coral Bells — Iowa State University Extension and Outreach",
+              "quote": "Newly planted Heuchera also have a tendency to frost heave their first winter in the home landscape. The freezing and thawing cycles of the soil lift the plant out of the soil. Mulching heavily after the first hard frost in fall will help prevent such temperature extremes and provide added weight to prevent heaving."
+            }
+          }
+        ],
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove stems of faded flowers to encourage additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a341",
+              "title": "Heuchera villosa 'Autumn Bride' - Plant Finder",
+              "quote": "Remove stems of faded flowers to encourage additional bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Echinacea": {
+      "note": "31 plants.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Plants usually rebloom without deadheading; prompt removal of spent flowers mainly improves appearance. Leave some seed heads in place late in the season.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c580",
+              "title": "Echinacea purpurea - Plant Finder",
+              "quote": "Plants usually rebloom without deadheading, however prompt removal of spent flowers improves general appearance."
+            }
+          }
+        ],
+        "earlyFall": [
+          {
+            "tag": "leave-seedheads",
+            "note": "Leave the cones standing rather than cutting in fall: they carry winter texture and feed overwintering birds. Cut back in spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/yard-and-garden-news/plants-add-winter-interest",
+              "title": "Plants can add winter interest to your landscape — UMN Extension",
+              "quote": "Wait till spring to cut back late summer flowers and seed heads. They provide interest and texture, but also food for overwintering birds."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "status": "verified",
+            "note": "Leave stalks standing over winter — they house nesting bees and anchor overwintering pupae. Cut back in spring.",
+            "source": {
+              "url": "https://xerces.org/blog/put-down-those-pruners-pollinators-need-your-garden-garbage",
+              "title": "Put Down Those Pruners: Pollinators Need Your 'Garden Garbage!' | Xerces Society",
+              "quote": "Don’t cut canes, stalks, or other standing plant material which may house nesting bees or be providing anchors for overwintering pupae."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Straight species and single-flowered forms support pollinators best; some popular double-flowered cultivars are effectively sterile, producing little or no pollen and nectar.",
+            "status": "verified",
+            "source": {
+              "url": "https://xerces.org/blog/cultivar-conundrum",
+              "title": "Picking Plants for Pollinators: The Cultivar Conundrum — Xerces Society",
+              "quote": "purple coneflower (Echinacea purpurea) has been bred into more than 100 cultivars"
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps when they become overcrowded, about every 4 years.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c580",
+              "title": "Echinacea purpurea - Plant Finder",
+              "quote": "Divide clumps when they become overcrowded (about every 4 years)."
+            }
+          }
+        ]
+      }
+    },
+    "Carex": {
+      "note": "24 plants.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "deadleaf",
+            "note": "Most sedges are not reliably evergreen this far north and brown out over winter — cut foliage to the ground in late winter/early spring before new growth starts. A handful of truly evergreen selections only need old leaves combed out by hand.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279740",
+              "title": "Carex morrowii — Missouri Botanical Garden Plant Finder",
+              "quote": "is not evergreen near the northern edge of its growing range"
+            }
+          }
+        ]
+      }
+    },
+    "Rosa": {
+      "note": "41 plants.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune out dead, crossing, and blackspot-affected canes before buds swell; this is a primary control for blackspot, which overwinters in canes and fallen leaves.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.illinois.edu/roses/managing-diseases-and-pests",
+              "title": "Managing Diseases and Pests — Illinois Extension",
+              "quote": "pruning out affected canes by spring before the buds swell may help provide some control"
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Blackspot and powdery mildew pressure is driven heavily by cultivar choice, not just genus — select for resistance.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.illinois.edu/roses/managing-diseases-and-pests",
+              "title": "Managing Diseases and Pests — Illinois Extension",
+              "quote": "Some roses are less susceptible than others, so cultivar selection is important"
+            }
+          }
+        ]
+      }
+    },
+    "Hosta": {
+      "note": "42 plants.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide once the eyes/growing tips emerge from the ground; dividing later in the season is possible but the plant may show more damage for the rest of that year.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/flowers/growing-hostas-minnesota",
+              "title": "Hostas — UMN Extension",
+              "quote": "Start in spring once the ‘eyes’ or growing tips start to emerge from the ground. Hostas can be divided later in the season, although they may show more damage for the rest of the season."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Slugs and deer browse are the most common problems.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/flowers/growing-hostas-minnesota",
+              "title": "Hostas — UMN Extension",
+              "quote": "Common problems of hostas include slugs and deer"
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "cutback",
+            "note": "Rake up and dispose of dead leaves in late fall to cut down on disease and insect pests overwintering in the debris; discard leaves separately if disease was an issue.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/flowers/growing-hostas-minnesota",
+              "title": "Hostas — UMN Extension",
+              "quote": "Rake up and compost or dispose of dead leaves in late fall to reduce the build-up of disease and insect pests"
+            }
+          }
+        ]
+      }
+    },
+    "Monarda": {
+      "note": "18 plants.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "space",
+            "note": "Increasing air movement between plants and minimizing overhead watering are primary defenses against powdery mildew, along with choosing resistant cultivars.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.chicagobotanic.org/downloads/planteval_notes/no12_monarda.pdf",
+              "title": "Plant Evaluation Notes No. 12: Monarda and Powdery Mildew Resistance — Chicago Botanic Garden",
+              "quote": "Powdery mildew can be lessened by selecting mildew-resistant cultivars, increasing air movement between plants, minimizing overhead watering and removing diseased leaves each fall."
+            }
+          },
+          {
+            "tag": "contain",
+            "note": "Spreads by rhizome; edit the colony annually.",
+            "status": "general"
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Dividing every few years enhances plant health and vigor and helps manage powdery mildew.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.chicagobotanic.org/downloads/planteval_notes/no12_monarda.pdf",
+              "title": "Plant Evaluation Notes No. 12: Monarda and Powdery Mildew Resistance — Chicago Botanic Garden",
+              "quote": "dividing plants every few years can further enhance plant health and vigor"
+            }
+          }
+        ]
+      }
+    },
+    "Viburnum": {
+      "note": "21 plants.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "monitor",
+            "note": "Check bare twigs for viburnum leaf beetle egg-laying sites (rows of small chewed holes) and prune out infested twigs; egg sites are easiest to spot once leaves have dropped.",
+            "status": "verified",
+            "source": {
+              "url": "http://www.hort.cornell.edu/vlb/manage.html",
+              "title": "Viburnum Leaf Beetle: Managing Viburnum Leaf Beetles — Cornell University",
+              "quote": "Look for infested twigs between early October and mid-April and prune them out. This is probably the single most effective measure you can take to limit beetle populations."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Finish pruning out any viburnum leaf beetle egg-infested twigs before hatch in mid-spring.",
+            "status": "verified",
+            "source": {
+              "url": "http://www.hort.cornell.edu/vlb/manage.html",
+              "title": "Viburnum Leaf Beetle: Managing Viburnum Leaf Beetles — Cornell University",
+              "quote": "Look for infested twigs between early October and mid-April and prune them out. This is probably the single most effective measure you can take to limit beetle populations."
+            }
+          }
+        ]
+      }
+    },
+    "Clematis": {
+      "note": "20 plants. Pruning group is essential and splits by cultivar, not by genus alone — identify the specific cultivar's group before pruning.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Identify the pruning group before cutting. Group 1: flowers only on old wood — prune after spring flowering. Group 2: flowers on old and new wood — little pruning needed; cutting to the ground or pruning in fall/spring reduces or delays bloom but doesn't prevent it. Group 3: flowers only on new wood — can be cut to the ground in fall or early spring before growth emerges.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=264641",
+              "title": "Clematis 'Jackmanii Superba' — Missouri Botanical Garden Plant Finder",
+              "quote": "Group 1 – Flowers only on old wood (previous year). Prune after spring flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Hibiscus": [
+      {
+        "match": {
+          "habitAny": [
+            "upright clump"
+          ]
+        },
+        "note": "28 plants total in the genus, split across two biologically different plant types that need opposite treatment. This variant covers herbaceous hardy hibiscus / perennial hibiscus / rose mallow (H. moscheutos and hybrids) — dies to the ground every winter like a perennial, and is very late to break dormancy in spring. Woody Rose of Sharon (H. syriacus) is handled separately below and must NOT be cut to the base like this.",
+        "tasks": {
+          "general": [
+            {
+              "tag": "monitor",
+              "note": "Very late to emerge in spring, often well behind other perennials — resist the urge to dig it up or replace it before early summer.",
+              "status": "verified",
+              "source": {
+                "url": "https://extension.illinois.edu/flowers/rose-mallow-hibiscus",
+                "title": "Rose Mallow Hibiscus — Illinois Extension",
+                "quote": "Very late to emerge in the spring"
+              }
+            }
+          ],
+          "earlySpring": [
+            {
+              "tag": "cutback",
+              "note": "Old stems can be left standing through winter as habitat for overwintering native bees, then cut back to about 6 in. high in late winter/earliest spring before new growth resumes.",
+              "status": "verified",
+              "source": {
+                "url": "https://hgic.clemson.edu/hardy-hibiscus-hibiscus-moscheutos-how-to-grow-and-care-for-hardy-hibiscus/",
+                "title": "Hardy Hibiscus (Hibiscus moscheutos): How to Grow and Care for Hardy Hibiscus — Clemson HGIC",
+                "quote": "Leave the dormant stems in winter to house solitary native bees. In late winter,cut back the stemsto 6 inches high."
+              }
+            }
+          ],
+          "lateSpring": [
+            {
+              "tag": "pinch",
+              "note": "Pinch growing tips as new growth gets underway to encourage a bushier habit.",
+              "status": "verified",
+              "source": {
+                "url": "https://hgic.clemson.edu/hardy-hibiscus-hibiscus-moscheutos-how-to-grow-and-care-for-hardy-hibiscus/",
+                "title": "Hardy Hibiscus (Hibiscus moscheutos): How to Grow and Care for Hardy Hibiscus — Clemson HGIC",
+                "quote": "As the plants begin growing in spring, pinch the growing tips to make the plants bushier."
+              }
+            }
+          ],
+          "lateFall": [
+            {
+              "tag": "leave-stems",
+              "note": "Leave stems standing over winter; hollow/pithy stems provide nesting habitat for solitary native bees.",
+              "status": "verified",
+              "source": {
+                "url": "https://hgic.clemson.edu/hardy-hibiscus-hibiscus-moscheutos-how-to-grow-and-care-for-hardy-hibiscus/",
+                "title": "Hardy Hibiscus (Hibiscus moscheutos): How to Grow and Care for Hardy Hibiscus — Clemson HGIC",
+                "quote": "Leave the dormant stems in winter to house solitary native bees"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "match": {
+          "habitAny": [
+            "upright shrub"
+          ]
+        },
+        "note": "Rose of Sharon (H. syriacus) — a woody deciduous shrub, not the herbaceous perennial hardy hibiscus above. Grows on a normal shrub schedule (does not die back or emerge unusually late) and is never cut to the base.",
+        "tasks": {
+          "earlySpring": [
+            {
+              "tag": "prune",
+              "note": "Blooms on new wood, so prune in late winter/early spring before growth begins — this encourages more and larger flowers. Thin and shape as a shrub; do not cut to the base the way the herbaceous hardy hibiscus is.",
+              "status": "verified",
+              "source": {
+                "url": "https://plants.ces.ncsu.edu/plants/hibiscus-syriacus/",
+                "title": "Hibiscus syriacus — NC State Extension Gardener Plant Toolbox",
+                "quote": "Spring pruning will encourage flowers on new growth and will increase flower size."
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Sedum": {
+      "note": "29 plants.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "water-deep",
+            "note": "Taller sedum hybrids with large flower heads are prone to flopping; full sun and lean, well-drained soil (not too moist or rich) reduce it.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f560",
+              "title": "Hylotelephium 'Herbstfreude' AUTUMN JOY — Missouri Botanical Garden Plant Finder",
+              "quote": "Taller sedum hybrids with large flower heads are susceptible to flopping. This can be avoided by providing full sun conditions and planting in soils that are not too moist or rich."
+            }
+          }
+        ],
+        "lateSpring": [
+          {
+            "tag": "pinch",
+            "note": "Pinching stems in spring forces thicker, bushier growth and helps limit flop.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f560",
+              "title": "Hylotelephium 'Herbstfreude' AUTUMN JOY — Missouri Botanical Garden Plant Finder",
+              "quote": "Pinching in spring can also force stems to grow thicker and bushier"
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "note": "Foliage and dead flower heads hold structure into winter — leave them standing and cut back in spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f560",
+              "title": "Hylotelephium 'Herbstfreude' AUTUMN JOY - Plant Finder",
+              "quote": "Foliage and dead inflorescences persist well into the winter providing some additional interest."
+            }
+          }
+        ]
+      }
+    },
+    "Salvia": {
+      "note": "17 plants — herbaceous perennial salvias (S. nemorosa and hybrids).",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide in early spring as new growth begins.",
+            "status": "verified",
+            "source": {
+              "url": "https://hgic.clemson.edu/factsheet/salvia/",
+              "title": "Salvia — Clemson HGIC",
+              "quote": "Divide perennial salvias in early spring when new growth begins."
+            }
+          }
+        ],
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove faded bloom spikes through summer to keep the plant flowering continuously.",
+            "status": "verified",
+            "source": {
+              "url": "https://hgic.clemson.edu/factsheet/salvia/",
+              "title": "Salvia — Clemson HGIC",
+              "quote": "During the summer, remove the faded bloom spikes of salvias to encourage continuous flowering."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "note": "Leave stems intact over winter for cold protection; wait for new growth in spring before cutting back to avoid freeze damage to the crown.",
+            "status": "verified",
+            "source": {
+              "url": "https://hgic.clemson.edu/factsheet/salvia/",
+              "title": "Salvia — Clemson HGIC",
+              "quote": "When perennial salvias go dormant, leave the stems intact. To avoid freeze damage, wait for new growth to begin in early spring before pruning."
+            }
+          }
+        ]
+      }
+    },
+    "Coreopsis": {
+      "note": "16 plants.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead spent flowers to encourage continued blooming and keep the plant looking tidy.",
+            "status": "verified",
+            "source": {
+              "url": "https://hgic.clemson.edu/native-plant-spotlight-tickseed-coreopsis-spp/",
+              "title": "Native Plant Spotlight: Tickseed (Coreopsis spp.) — Clemson HGIC",
+              "quote": "Deadheading spent flowers encourages continued blooming and helps maintain a tidy appearance."
+            }
+          }
+        ]
+      }
+    },
+    "Astilbe": {
+      "note": "16 plants. A shade perennial that is unforgiving of dry soil.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "water-establish",
+            "note": "Needs consistently moist, humus-rich soil — leaves brown quickly if it dries out, though it also won't tolerate waterlogged, heavy clay.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/growing-astilbe-iowa",
+              "title": "Growing Astilbe in Iowa — Iowa State University Extension and Outreach",
+              "quote": "Astilbes are unforgiving in dry soils, as the leaves will brown quickly"
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide vigorously growing clumps every 4-6 years as new foliage emerges.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/growing-astilbe-iowa",
+              "title": "Growing Astilbe in Iowa — Iowa State University Extension and Outreach",
+              "quote": "Vigorously growing astilbes can be divided every 4 to 6 years"
+            }
+          }
+        ]
+      }
+    },
+    "Syringa": {
+      "note": "16 plants (lilac). A spring bloomer on old wood — UMN Extension lists lilac among shrubs that must be pruned right after flowering, not in late winter/early spring.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Deadhead spent flower clusters and do any shaping right after bloom finishes, before next year's flower buds set — pruning later in the season removes next spring's flowers.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning Trees and Shrubs — UMN Extension",
+              "quote": "Trees and shrubs that bloom early in the growing season on last year's growth should be pruned immediately after they finish blooming"
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "thin",
+            "note": "Remove suckers coming up from the roots or low on the trunk; they draw energy without adding to the shrub’s form.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning trees and shrubs — UMN Extension",
+              "quote": "Remove suckers coming up from the roots or low on the trunk."
+            }
+          }
+        ]
+      }
+    },
+    "Azalea": {
+      "note": "14 plants. Spring bloomer on old wood, listed by UMN Extension among the shrubs that must be pruned right after flowering rather than in late winter/early spring.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Snap or prune off faded flower clusters just after bloom, taking care not to damage the new leaf buds at the base of the flower stalk.",
+            "status": "verified",
+            "source": {
+              "url": "https://hoke.ces.ncsu.edu/news/after-the-bloom-nurturing-your-azaleas-and-rhododendrons/",
+              "title": "After the Bloom: Nurturing Your Azaleas and Rhododendrons — NC Cooperative Extension",
+              "quote": "Gently snap or prune off the faded flower trusses just below the flower head, being careful not to damage the developing leaf buds located at the base of the flower stalk."
+            }
+          },
+          {
+            "tag": "prune",
+            "note": "Any shaping or size-control pruning belongs in this same right-after-bloom window — waiting until later removes the buds that would have bloomed next spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/planting-and-growing-guides/pruning-trees-and-shrubs",
+              "title": "Pruning Trees and Shrubs — UMN Extension",
+              "quote": "Trees and shrubs that bloom early in the growing season on last year's growth should be pruned immediately after they finish blooming"
+            }
+          }
+        ]
+      }
+    },
+    "Rhododendron": {
+      "note": "13 plants (large-flowered Rhododendron, kept distinct from Azalea in this catalog). Spring bloomer — pruning window is right after flowering.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Snap or prune off faded flower clusters just below the flower head shortly after bloom, taking care not to damage the new leaf buds at the base of the flower stalk — this redirects energy from seed production into next year's buds.",
+            "status": "verified",
+            "source": {
+              "url": "https://hoke.ces.ncsu.edu/news/after-the-bloom-nurturing-your-azaleas-and-rhododendrons/",
+              "title": "After the Bloom: Nurturing Your Azaleas and Rhododendrons — NC Cooperative Extension",
+              "quote": "For rhododendrons with larger flower clusters, you might need pruning shears for a clean cut."
+            }
+          },
+          {
+            "tag": "prune",
+            "note": "The window right after flowering is the best time for any shaping or size-control pruning; heavy pruning later risks removing next year's flower buds.",
+            "status": "verified",
+            "source": {
+              "url": "https://hoke.ces.ncsu.edu/news/after-the-bloom-nurturing-your-azaleas-and-rhododendrons/",
+              "title": "After the Bloom: Nurturing Your Azaleas and Rhododendrons — NC Cooperative Extension",
+              "quote": "The period immediately after flowering is the ideal time for any necessary pruning."
+            }
+          }
+        ]
+      }
+    },
+    "Weigela": {
+      "note": "13 plants. Blooms on old wood.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Prune immediately after flowering finishes; because it blooms on old wood, pruning later in the season cuts off next year's flower buds.",
+            "status": "verified",
+            "source": {
+              "url": "https://hgic.clemson.edu/how-to-grow-and-care-for-old-fashioned-weigela-weigela-florida/",
+              "title": "How To Grow and Care for Old Fashioned Weigela — Clemson HGIC",
+              "quote": "Weigela blooms on old wood, so late pruning reduces next year's flowers."
+            }
+          }
+        ]
+      }
+    },
+    "Aster": {
+      "note": "13 plants (Symphyotrichum spp.) — late-summer/fall bloomers and good Chelsea-chop candidates.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "pinch",
+            "note": "Cutting back by about a third to a half in late May/early June (the \"Chelsea chop\") produces bushier, sturdier plants that are less prone to flopping, with more (if slightly later) bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://mtcubacenter.org/chelsea-chop/",
+              "title": "Time for the Chelsea Chop! — Mt. Cuba Center",
+              "quote": "The Chelsea chop involves cutting back certain perennials by about one-third to one-half in late May or early June."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide every 2-3 years to maintain vigor and flower quality.",
+            "status": "general"
+          }
+        ]
+      }
+    },
+    "Iris": {
+      "note": "13 plants. Mostly rhizomatous iris (bearded, Siberian, Japanese types) — division doubles as pest control.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "divide",
+            "note": "Divide every 3-5 years once flowering declines or clumps get crowded; division also helps manage iris borer and soft rot. Best done in July-August, after bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.illinois.edu/blogs/good-growing/2021-08-20-how-divide-and-plant-bearded-iris",
+              "title": "How to divide and plant bearded iris — Illinois Extension",
+              "quote": "should be divided every three to five years when flowering begins to decline, or the clumps become crowded"
+            }
+          },
+          {
+            "tag": "monitor",
+            "note": "When dividing, discard any rhizome that is soft, mushy, or tunneled by iris borer rather than replanting it.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.illinois.edu/blogs/good-growing/2021-08-20-how-divide-and-plant-bearded-iris",
+              "title": "How to divide and plant bearded iris — Illinois Extension",
+              "quote": "If you find rhizomes that have iris borer damage, are smelly or mushy (soft rot), discard these rhizomes too."
+            }
+          },
+          {
+            "tag": "cutback",
+            "note": "Cut foliage back to about a third of its height at division time to reduce water loss and transplant stress.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.illinois.edu/blogs/good-growing/2021-08-20-how-divide-and-plant-bearded-iris",
+              "title": "How to divide and plant bearded iris — Illinois Extension",
+              "quote": "cut back the leaves to about one-third of their height"
+            }
+          }
+        ]
+      }
+    },
+    "Juniperus": {
+      "note": "15 plants. Evergreen conifer — pruning must stay within live green growth.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Junipers cannot regenerate from bare, brown wood, so any pruning cut must stay within live green growth — cutting back into a leafless interior leaves a permanent gap.",
+            "status": "verified",
+            "source": {
+              "quote": "They cannot be severely pruned because they are incapable of initiating new growth from bare branches.",
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/pruning-large-overgrown-shrubs",
+              "title": "Pruning Large, Overgrown Shrubs — Iowa State University Extension and Outreach"
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "If shaping is needed, prune in late March or early April before new growth begins.",
+            "status": "verified",
+            "source": {
+              "quote": "Prune evergreen shrubs, such as juniper and yew, in late March or early April before new growth begins.",
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/proper-time-prune-trees-and-shrubs",
+              "title": "Proper Time to Prune Trees and Shrubs — Iowa State University Extension and Outreach"
+            }
+          }
+        ]
+      }
+    },
+    "Chamaecyparis": {
+      "note": "14 plants. Evergreen conifer (false/Hinoki cypress) — same old-wood pruning limits as other conifers.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Like other evergreen conifers, false cypress will not fill back in if cut into bare, leafless wood — keep any pruning within the green foliage.",
+            "status": "verified",
+            "source": {
+              "quote": "Do not prune evergreen shrubs back into dead portions of the branches. Any large hole or gap in the canopy revealed by pruning will always remain.",
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/pruning-large-overgrown-shrubs",
+              "title": "Pruning Large, Overgrown Shrubs — Iowa State University Extension and Outreach"
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "If shaping is needed, prune in late March or early April before new growth begins.",
+            "status": "verified",
+            "source": {
+              "quote": "Prune evergreen shrubs, such as juniper and yew, in late March or early April before new growth begins.",
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/proper-time-prune-trees-and-shrubs",
+              "title": "Proper Time to Prune Trees and Shrubs — Iowa State University Extension and Outreach"
+            }
+          }
+        ]
+      }
+    },
+    "Thuja": {
+      "note": "11 plants. Arborvitae — very limited ability to regrow from old wood.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Arborvitae has only limited ability to sprout from bare, old wood, and doing so can take years to fill back in — avoid heavy cuts into the leafless interior.",
+            "status": "verified",
+            "source": {
+              "quote": "Some species, such as yew and, to a lesser extent, boxwood and arborvitae, can initiate new growth from bare stems and may eventually fill in, but this process can take considerable time.",
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/pruning-large-overgrown-shrubs",
+              "title": "Pruning Large, Overgrown Shrubs — Iowa State University Extension and Outreach"
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "If shaping is needed, prune in late March or early April before new growth begins.",
+            "status": "verified",
+            "source": {
+              "quote": "Prune evergreen shrubs, such as juniper and yew, in late March or early April before new growth begins.",
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/proper-time-prune-trees-and-shrubs",
+              "title": "Proper Time to Prune Trees and Shrubs — Iowa State University Extension and Outreach"
+            }
+          }
+        ]
+      }
+    },
+    "Cornus": {
+      "note": "12 plants. Shrub dogwoods (redosier/red-twig group) grown mainly for winter stem color — needs regular renewal pruning to keep that color.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Practice renewal pruning: cut the oldest third of stems down to the base every year or two, since the brightest bark color occurs on stems less than 3 years old.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.umn.edu/trees-and-shrubs/redosier-dogwood",
+              "title": "Redosier dogwood — UMN Extension",
+              "quote": "It is important to practice renewal pruning: remove the oldest third of stems every 1 to 2 years to maintain vibrant color."
+            }
+          }
+        ]
+      }
+    },
+    "Geranium": {
+      "note": "14 plants. Hardy perennial cranesbill (not tender annual Pelargonium).",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Shear foliage back lightly after the first bloom flush to revitalize the plant and tidy its shape.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=280851",
+              "title": "Geranium sanguineum — Missouri Botanical Garden Plant Finder",
+              "quote": "Foliage may be lightly sheared back and shaped to revitalize after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Allium": {
+      "note": "13 plants. Ornamental onion — deadheading is optional, mainly to control self-seeding; foliage should be left to die back on its own.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadheading is optional — it is mainly useful for controlling unwanted self-seeding; otherwise spent flowers/seedheads can be left for winter interest.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=281848",
+              "title": "Allium stellatum — Missouri Botanical Garden Plant Finder",
+              "quote": "Deadhead flowers before seed set to help control any unwanted spread."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "leave-stems",
+            "note": "Let foliage die back naturally rather than cutting it early — it persists into or just past flowering before yellowing on its own.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=281848",
+              "title": "Allium stellatum — Missouri Botanical Garden Plant Finder",
+              "quote": "Foliage persists to the time of or slightly past flowering in summer before dying back."
+            }
+          }
+        ]
+      }
+    },
+    "Baptisia": {
+      "note": "13 plants. Deep-taprooted perennial that resents division/transplanting once established; otherwise very low-maintenance.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Once established, Baptisia develops a deep taproot and expanding clump that should not be divided or transplanted.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b660",
+              "title": "Baptisia australis — Missouri Botanical Garden Plant Finder",
+              "quote": "Over time, plants develop slowly expanding clumps with deep and extensive root systems, and should not be disturbed once established."
+            }
+          }
+        ],
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Optional: trimming/shearing foliage after bloom keeps the plant rounded and can reduce the need for staking, at the cost of the ornamental seed pods.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b660",
+              "title": "Baptisia australis — Missouri Botanical Garden Plant Finder",
+              "quote": "Trimming or shearing foliage after bloom helps maintain rounded plant appearance and obviates a possible need for staking"
+            }
+          }
+        ]
+      }
+    },
+    "Achillea": {
+      "note": "11 plants. Yarrow — deadhead/shear to tidy and rebloom; divide every 2-3 years as it loses vigor and flops.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Cut back to a lateral flower bud after the initial bloom flush to tidy the planting and encourage additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b282",
+              "title": "Achillea millefolium — Missouri Botanical Garden Plant Finder",
+              "quote": "Cutting plants back to lateral flower buds after initial flowering will tidy the planting and encourage additional bloom."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps every 2-3 years to maintain vigor — plants lose steam and flop in the center if left too long.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b282",
+              "title": "Achillea millefolium — Missouri Botanical Garden Plant Finder",
+              "quote": "Divide clumps as needed (every 2-3 years) to maintain vitality of the planting."
+            }
+          }
+        ]
+      }
+    },
+    "Spiraea": {
+      "note": "11 plants. Mostly summer-blooming bumald/birchleaf types (bloom on new wood); a couple old-fashioned spring bloomers (Vanhoutte, Grefsheim) bloom on old wood instead and should be pruned right after flowering rather than in spring.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Most garden spireas (bumald and birchleaf types, e.g. Anthony Waterer, Goldflame, Goldmound) bloom on the current year's growth and are pruned back in late winter/early spring. A few old-fashioned spring bloomers (Vanhoutte, Grefsheim) bloom on old wood instead and should be pruned right after flowering, not in spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/proper-time-prune-trees-and-shrubs",
+              "title": "Proper Time to Prune Trees and Shrubs — Iowa State University Extension and Outreach",
+              "quote": "Summer-flowering shrubs, such as potentilla and Japanese spirea, bloom in summer on the current year's growth. Prune summer-flowering shrubs in late winter or early spring."
+            }
+          }
+        ]
+      }
+    },
+    "Anemone": {
+      "note": "10 plants. Fall-blooming Japanese/hybrid anemones — spreads by rhizomes and can outcompete neighbors if not given room or contained.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Spreads by rhizomes and forms expanding colonies over time — give it room or be prepared to divide/contain it so it doesn't crowd out neighboring plants.",
+            "status": "verified",
+            "source": {
+              "url": "https://plants.ces.ncsu.edu/plants/anemone-x-hybrida-september-charm/",
+              "title": "Anemone x hybrida 'September Charm' — NC State Extension Gardener Plant Toolbox",
+              "quote": "will grow 3 to 4 feet tall and spread 2- to 3 feet wide forming colonies by spreading rhizomes"
+            }
+          }
+        ]
+      }
+    },
+    "Ilex": {
+      "note": "10 plants. Holly — dioecious; female plants need a male of a compatible species/bloom-time nearby to set berries.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Hollies are dioecious — only one sex per plant. A female plant needs a male holly (same or compatible species, overlapping bloom time) planted nearby to set berries.",
+            "status": "verified",
+            "source": {
+              "url": "https://plants.ces.ncsu.edu/plants/ilex/",
+              "title": "Ilex (Hollies, Holly) — NC State Extension Gardener Plant Toolbox",
+              "quote": "Hollies are dioecious, meaning that only one sex is found on any one plant, thus both male and female plants must be grown if fruits are desired."
+            }
+          }
+        ]
+      }
+    },
+    "Rudbeckia": {
+      "note": "9 plants. Black-eyed Susan — deadhead to extend bloom; self-seeds readily and can spread beyond where it's planted.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadheading can encourage further blooms through the long summer bloom season.",
+            "status": "verified",
+            "source": {
+              "url": "https://plants.ces.ncsu.edu/plants/rudbeckia/",
+              "title": "Rudbeckia (Black-eyed Susan, Coneflower) — NC State Extension Gardener Plant Toolbox",
+              "quote": "Deadheading can encourage further blooms"
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Typically spreads by self-seeding — deadhead spent flowers before they set seed if volunteer seedlings beyond the planting area aren't wanted.",
+            "status": "verified",
+            "source": {
+              "url": "https://plants.ces.ncsu.edu/plants/rudbeckia/",
+              "title": "Rudbeckia (Black-eyed Susan, Coneflower) — NC State Extension Gardener Plant Toolbox",
+              "quote": "typically spread by self-seeding"
+            }
+          }
+        ]
+      }
+    },
+    "Liatris": {
+      "note": "9 plants. Blazing star — dead stems are valuable overwinter, both for stem-nesting native bees and as a food source (goldfinches eat the seeds).",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "leave-stems",
+            "note": "Native bees nest inside the dead, hollow stems — cut back to 12-24 inches rather than to the ground, and let the cut stems stand until they naturally break down.",
+            "status": "verified",
+            "source": {
+              "url": "https://plants.ces.ncsu.edu/plants/liatris-spicata/",
+              "title": "Liatris spicata — NC State Extension Gardener Plant Toolbox",
+              "quote": "Native bees nest in the dead, hollow stems, so gardeners are encouraged to cut back dead stems to 12 to 24 inches and allow them to remain standing until they disintegrate on their own."
+            }
+          }
+        ]
+      }
+    },
+    "Helleborus": {
+      "note": "9 plants. Lenten rose — evergreen foliage goes tattered over winter; the one essential yearly task is cutting back old leaves before flowers open.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "deadleaf",
+            "note": "Old evergreen foliage sprawls and declines over winter — cut it back to the base in late winter, just as the new flower stalks begin to emerge, so blooms aren't hidden behind tattered leaves.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.uaex.uada.edu/counties/white/news/horticulture/lenten-rose.aspx",
+              "title": "Lenten Rose — Arkansas Cooperative Extension Service",
+              "quote": "To keep the plant tidy, trim off the old leaves in late winter just as the new crop of shoots begin to emerge."
+            }
+          }
+        ]
+      }
+    },
+    "Pinus": {
+      "note": "9 plants. Pine (mugo and white pine types) — grows from terminal 'candles' rather than side buds; sizing is controlled by pinching candles, not by cutting into old wood.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "pinch",
+            "note": "To control size, pinch or prune off one-half to two-thirds of each new 'candle' in spring while it's still 2-3 inches long and before the needles expand.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/proper-time-prune-trees-and-shrubs",
+              "title": "Proper Time to Prune Trees and Shrubs — Iowa State University Extension and Outreach",
+              "quote": "The growth of pines can be slowed by pinching or pruning off one-half to two-thirds of the elongated terminal buds (\"candles\") in spring when the candles are approximately 2 to 3 inches long."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Pines don't produce side/lateral buds, so a branch cut back into older growth below the current candles won't resprout — don't rely on hard pruning to reduce size.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/proper-time-prune-trees-and-shrubs",
+              "title": "Proper Time to Prune Trees and Shrubs — Iowa State University Extension and Outreach",
+              "quote": "Do not prune branches back to older growth down the stem as new growth will not develop from these areas."
+            }
+          }
+        ]
+      }
+    },
+    "Asclepias": {
+      "note": "8 plants. Milkweed — the only obligate host plant for monarch caterpillars; avoid pesticides and don't remove plants while caterpillars/eggs may be present.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "contain",
+            "note": "If self-seeding beyond the planting area is a concern, remove immature seed pods before they split open, rather than pulling whole plants.",
+            "status": "verified",
+            "source": {
+              "url": "https://extension.unh.edu/blog/2018/08/milkweed-taking-over-my-perennial-garden-how-can-i-save-some-monarch-butterflies-keep-it-spreading",
+              "title": "Milkweed is taking over my perennial garden — UNH Extension",
+              "quote": "you can prevent further spread by removing immature seed pods"
+            }
+          }
+        ]
+      }
+    },
+    "Nepeta": {
+      "note": "8 plants. Catmint; benefits from a hard shear after first flush to rebloom.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Shear back flower spikes after the first flush of bloom to promote continued flowering through summer.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=250745",
+              "title": "Nepeta × faassenii — Missouri Botanical Garden Plant Finder",
+              "quote": "Shear flower spikes after initial flowering to promote continued bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Geum": {
+      "note": "8 plants. Low, clump-forming avens; deadhead for extended bloom and divide to maintain vigor.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flowers to encourage additional bloom, though leaving some later flowers allows attractive fluffy seed heads to form.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=263707",
+              "title": "Geum 'Borisii' — Missouri Botanical Garden Plant Finder",
+              "quote": "Remove spent flowers to encourage additional bloom, but consider leaving some of the later flowers so that the fluffy seed heads can form."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps in spring as needed to maintain plant vigor.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=263707",
+              "title": "Geum 'Borisii' — Missouri Botanical Garden Plant Finder",
+              "quote": "Divide plants in spring as needed to maintain vigor."
+            }
+          }
+        ]
+      }
+    },
+    "Veronica": {
+      "note": "8 plants. Spike speedwell; deadhead spent spikes and cut back after flowering.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flower spikes to encourage additional bloom; plants may be cut back to basal growth after flowering finishes.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=299638",
+              "title": "Veronica spicata — Missouri Botanical Garden Plant Finder",
+              "quote": "Remove spent flower spikes to encourage additional bloom. Plants may be cut back to basal growth after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Amsonia": {
+      "note": "7 plants. Bluestar; cut back stems after flowering to keep the foliage mound from opening up and flopping.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Cut back stems by about 6 inches after flowering to keep stems upright and shape plants into a neat foliage mound.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=w810",
+              "title": "Amsonia hubrichtii — Missouri Botanical Garden Plant Finder",
+              "quote": "Consider cutting back the stems by about 6\" after flowering to help keep stems upright and to shape plants into a nice foliage mound."
+            }
+          }
+        ]
+      }
+    },
+    "Penstemon": {
+      "note": "7 plants. Beardtongue; self-sows and can spread beyond its planting spot in garden settings.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Can spread somewhat aggressively in a garden setting via self-seeding; edit volunteer seedlings if a tighter planting is desired.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=g590",
+              "title": "Penstemon digitalis — Missouri Botanical Garden Plant Finder",
+              "quote": "Can spread somewhat aggressively in a garden setting."
+            }
+          }
+        ]
+      }
+    },
+    "Brunnera": {
+      "note": "7 plants. Siberian bugloss; slowly spreads by rhizome to form a thick ground cover.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Clumps slowly spread by creeping rhizomes into thick ground covers over time; divide or edge if containment is needed.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=243231",
+              "title": "Brunnera macrophylla — Missouri Botanical Garden Plant Finder",
+              "quote": "Clumps slowly spread by creeping rhizomes to form thick ground covers."
+            }
+          }
+        ]
+      }
+    },
+    "Dianthus": {
+      "note": "7 plants. Cheddar pink; shear the foliage mat after flowering to keep it tidy.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "After flowering is completed, lightly shear plants back to maximize the ornamental appearance of the foliage mat.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279029",
+              "title": "Dianthus gratianopolitanus — Missouri Botanical Garden Plant Finder",
+              "quote": "After flowering is completed, plants may be lightly sheared back to maximize the ornamental appearance of the foliage mat."
+            }
+          }
+        ]
+      }
+    },
+    "Ligularia": {
+      "note": "7 plants. Leopard plant; needs consistently moist soil and will wilt in too much sun or dry spells.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "monitor",
+            "note": "Must have moist soils that never dry out; foliage will wilt if soil dries or plants get too much direct sun.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277343",
+              "title": "Ligularia dentata — Missouri Botanical Garden Plant Finder",
+              "quote": "Must have moist soils that never dry out."
+            }
+          }
+        ]
+      }
+    },
+    "Thymus": {
+      "note": "7 plants. Creeping thyme; shear to control spread and refresh dense, woody growth.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Cut back stems as necessary to maintain plant appearance, control growth and spread, or limit unsightly woody stem growth.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a294",
+              "title": "Thymus serpyllum — Missouri Botanical Garden Plant Finder",
+              "quote": "Cut back stems as necessary to maintain plant appearance, to control growth/spread or to limit unsightly woody stem growth."
+            }
+          }
+        ]
+      }
+    },
+    "Aquilegia": {
+      "note": "6 plants. Columbine; remove spent flowering stems to prolong bloom and keep soil moist for foliage.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Remove flowering stems after bloom to encourage additional bloom; keep soil uniformly moist afterward to prolong the foliage display.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b400",
+              "title": "Aquilegia canadensis — Missouri Botanical Garden Plant Finder",
+              "quote": "Remove flowering stems after bloom to encourage additional bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Solidago": {
+      "note": "6 plants. Goldenrod; deadhead to tidy and prevent excess self-seeding, and divide every few years to control spread.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flower clusters to encourage additional bloom and limit self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f610",
+              "title": "Solidago rigida — Missouri Botanical Garden Plant Finder",
+              "quote": "Remove spent flower clusters to encourage additional bloom."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "May need to be divided every 2 to 3 years to control growth and maintain the clump.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f610",
+              "title": "Solidago rigida — Missouri Botanical Garden Plant Finder",
+              "quote": "May need to be divided every 2 to 3 years to control growth."
+            }
+          }
+        ]
+      }
+    },
+    "Aruncus": {
+      "note": "6 plants. Goat's beard; deadheading is optional and mainly cosmetic since it does not extend bloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Removing faded flower stalks will not prolong bloom, but may improve plant appearance if a tidier look is desired; female plants can also be left in place to enjoy the dried seed plumes.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=j430",
+              "title": "Aruncus dioicus — Missouri Botanical Garden Plant Finder",
+              "quote": "Removing faded flower stalks will not prolong bloom, but may improve plant appearance, particularly if a ground cover look is desired."
+            }
+          }
+        ]
+      }
+    },
+    "Lamium": {
+      "note": "8 plants. Spotted deadnettle; cut back if summer heat causes foliage to melt out.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "shear",
+            "note": "If mid-summer foliage decline (melting out) occurs in hot, humid weather, cut plants back or shear them to stimulate fresh new growth.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=d720",
+              "title": "Lamium maculatum 'White Nancy' — Missouri Botanical Garden Plant Finder",
+              "quote": "If such mid-summer foliage decline occurs, plants may be cut back or sheared to stimulate new foliage growth."
+            }
+          }
+        ]
+      }
+    },
+    "Diervilla": {
+      "note": "8 plants. Bush honeysuckle; prune right after flowering since it blooms on old wood.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed immediately after flowering finishes in mid-summer.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=278946",
+              "title": "Diervilla lonicera — Missouri Botanical Garden Plant Finder",
+              "quote": "Prune as needed immediately after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Physocarpus": {
+      "note": "8 plants. Ninebark; a spring-blooming shrub that tolerates hard renovation pruning but sacrifices that year's flowers.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Overgrown plants can be renovated by cutting back hard in late winter/early spring, but as a spring bloomer it will not flower the following spring after such a renovation cut.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/pruning-large-overgrown-shrubs",
+              "title": "Pruning Large, Overgrown Shrubs — Iowa State University Extension and Outreach",
+              "quote": "Large, overgrown lilacs, honeysuckles, dogwoods, spireas, barberry, flowering quince, ninebark, smokebush, and forsythias may be pruned in this manner. Spring-blooming shrubs like ninebark, smokebush, and forsythia will not bloom the following spring after renovation pruning."
+            }
+          }
+        ]
+      }
+    },
+    "Cotinus": {
+      "note": "7 plants. Smokebush; a spring-blooming shrub that tolerates hard renovation pruning but sacrifices that year's flowers.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Overgrown plants can be renovated by cutting back hard in late winter/early spring, but as a spring bloomer it will not flower the following spring after such a renovation cut.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/pruning-large-overgrown-shrubs",
+              "title": "Pruning Large, Overgrown Shrubs — Iowa State University Extension and Outreach",
+              "quote": "Large, overgrown lilacs, honeysuckles, dogwoods, spireas, barberry, flowering quince, ninebark, smokebush, and forsythias may be pruned in this manner. Spring-blooming shrubs like ninebark, smokebush, and forsythia will not bloom the following spring after renovation pruning."
+            }
+          }
+        ]
+      }
+    },
+    "Taxus": {
+      "note": "8 plants. Yew; one of the few evergreens capable of resprouting from bare wood, though slowly.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Unlike most evergreens, yew can initiate new growth from bare stems and may eventually fill in a hard-pruned gap, though this can take considerable time.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/pruning-large-overgrown-shrubs",
+              "title": "Pruning Large, Overgrown Shrubs — Iowa State University Extension and Outreach",
+              "quote": "Some species, such as yew and, to a lesser extent, boxwood and arborvitae, can initiate new growth from bare stems and may eventually fill in, but this process can take considerable time."
+            }
+          }
+        ]
+      }
+    },
+    "Buxus": {
+      "note": "7 plants. Boxwood; marginally hardy in the Upper Midwest and prone to winter dieback that needs corrective pruning.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Assess winter injury in early spring; where dieback has occurred, prune back to live wood and give the plant a chance to recover.",
+            "status": "verified",
+            "source": {
+              "url": "https://yardandgarden.extension.iastate.edu/how-to/managing-winter-injury-boxwood",
+              "title": "Managing Winter Injury to Boxwood — Iowa State University Extension and Outreach",
+              "quote": "When this happens, prune back to the live wood and give them a chance to recover."
+            }
+          }
+        ]
+      }
+    },
+    "Aronia": {
+      "note": "Suckering colonial shrub; remove root suckers to control spread unless a naturalized thicket is wanted.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Remove root suckers to prevent colonial spread unless naturalized spread is desired.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=j420",
+              "title": "Aronia melanocarpa - Plant Finder",
+              "quote": "Remove root suckers to prevent colonial spread unless desired."
+            }
+          }
+        ]
+      }
+    },
+    "Athyrium": {
+      "note": "Divide clumps periodically in spring to keep crowns at soil level.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps in spring every few years to reposition crowns at the soil level.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b630",
+              "title": "Athyrium filix-femina - Plant Finder",
+              "quote": "Divide clumps in spring every few years to reposition crowns at the soil level."
+            }
+          }
+        ]
+      }
+    },
+    "Eupatorium": {
+      "note": "Cut to the ground in late winter ahead of new spring growth.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "cutback",
+            "note": "Cut plants to the ground in late winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=292659",
+              "title": "Eutrochium maculatum - Plant Finder",
+              "quote": "Cut plants to the ground in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Hamamelis": {
+      "note": "Suckering shrub needing little pruning; remove suckers promptly and prune only lightly if needed.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Promptly remove suckers to prevent colonial spread.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a749",
+              "title": "Hamamelis virginiana - Plant Finder",
+              "quote": "Promptly remove suckers to prevent colonial spread."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Little pruning is required. Prune in early spring if necessary.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a749",
+              "title": "Hamamelis virginiana - Plant Finder",
+              "quote": "Little pruning is required. Prune in early spring if necessary."
+            }
+          }
+        ]
+      }
+    },
+    "Heliopsis": {
+      "note": "Deadhead to extend bloom; cut back in late May to reduce final height.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flowers to extend bloom season.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=g520",
+              "title": "Heliopsis helianthoides - Plant Finder",
+              "quote": "Remove spent flowers to extend bloom season."
+            }
+          }
+        ],
+        "lateSpring": [
+          {
+            "tag": "cutback",
+            "note": "Plant stems may be cut back by 1/3 to 1/2 in late May to reduce overall plant height.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=g520",
+              "title": "Heliopsis helianthoides - Plant Finder",
+              "quote": "Plant stems may be cut back by 1/3 to 1/2 in late May to reduce overall plant height."
+            }
+          }
+        ]
+      }
+    },
+    "Buddleia": {
+      "note": "Often dies back in this region; cut close to the ground in late winter, deadhead through summer, and remove spent flowers before seed forms to limit self-seeding.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "cutback",
+            "note": "Plants often grow more vigorously, produce superior flowers and maintain better shape if cut close to the ground in late winter each year.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=271488",
+              "title": "Buddleja davidii - Plant Finder",
+              "quote": "Even if plants do not die to the ground in winter, they often grow more vigorously, produce superior flowers and maintain better shape if cut close to the ground in late winter each year."
+            }
+          }
+        ],
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Prompt removal of spent flower spikes during the growing season will usually encourage continued bloom until frost.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=271488",
+              "title": "Buddleja davidii - Plant Finder",
+              "quote": "Prompt removal of spent flower spikes during the growing season will usually encourage continued bloom until frost."
+            }
+          },
+          {
+            "tag": "edit-seedlings",
+            "note": "Where self-seeding is a potential problem, remove spent flower clusters prior to formation/disbursement of seed.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=271488",
+              "title": "Buddleja davidii - Plant Finder",
+              "quote": "Where self-seeding is a potential problem, remove spent flower clusters prior to formation/disbursement of seed."
+            }
+          }
+        ]
+      }
+    },
+    "Lavandula": {
+      "note": "Deadhead to prolong bloom; shape in spring and hard-prune every few years to keep plants from getting woody.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove faded flowers to promote continued bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=281393",
+              "title": "Lavandula angustifolia - Plant Finder",
+              "quote": "Remove faded flowers to promote continued bloom."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune to shape in spring after new leaves appear. Prune back to 8 inches in spring every 3 years to control plant size and to promote robust, new growth.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=281393",
+              "title": "Lavandula angustifolia - Plant Finder",
+              "quote": "Prune to shape in spring after new leaves appear. Prune back to 8” in spring every 3 years to control plant size and to promote robust, new growth."
+            }
+          }
+        ]
+      }
+    },
+    "Stachys": [
+      {
+        "match": {
+          "habitAny": [
+            "mound",
+            "spreading mat"
+          ]
+        },
+        "note": "Lamb’s-ear type, grown for its silvery foliage mat; pick off damaged leaves in humid spells and remove flowering stems to keep the ground-cover effect.",
+        "tasks": {
+          "midSummer": [
+            {
+              "tag": "deadleaf",
+              "note": "If mid-summer foliage decline occurs, pick off damaged leaves as needed.",
+              "status": "verified",
+              "source": {
+                "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=281603",
+                "title": "Stachys byzantina - Plant Finder",
+                "quote": "If mid-summer foliage decline occurs, pick off damaged leaves as needed."
+              }
+            },
+            {
+              "tag": "deadhead",
+              "note": "Many gardeners prefer to remove the flowering stems as they appear to enhance the ground cover effect.",
+              "status": "verified",
+              "source": {
+                "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=281603",
+                "title": "Stachys byzantina - Plant Finder",
+                "quote": "Many gardeners prefer to remove the flowering stems as they appear to enhance the ground cover effect."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "match": {
+          "habit": "upright clump"
+        },
+        "note": "Betony type, grown for its flower spikes; cut back spent flowering stalks to encourage reblooming.",
+        "tasks": {
+          "midSummer": [
+            {
+              "tag": "deadhead",
+              "note": "Cut back the flowering stalks to encourage reblooming.",
+              "status": "verified",
+              "source": {
+                "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=258994",
+                "title": "Stachys officinalis 'Hummelo' - Plant Finder",
+                "quote": "Cut back the flowering stalks to encourage reblooming."
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "Tiarella": {
+      "note": "Removing spent flower spikes after bloom improves the appearance of the foliage mound.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Removal of flower spikes after bloom will improve the appearance of the foliage mound.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f990",
+              "title": "Tiarella cordifolia - Plant Finder",
+              "quote": "Removal of flower spikes after bloom will improve the appearance of the foliage mound."
+            }
+          }
+        ]
+      }
+    },
+    "Clethra": {
+      "note": "Suckering shrub; remove suckers promptly unless a naturalized colony is wanted, and prune in late winter if needed.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Promptly remove root suckers unless naturalized look is desired.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c230",
+              "title": "Clethra alnifolia - Plant Finder",
+              "quote": "Promptly remove root suckers unless naturalized look is desired."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "prune",
+            "note": "Prune if needed in late winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c230",
+              "title": "Clethra alnifolia - Plant Finder",
+              "quote": "Prune if needed in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Delphinium": {
+      "note": "Cut back spent flower spikes promptly after bloom to encourage a later rebloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "After bloom, promptly cut back spent flower spikes to the basal foliage to encourage an additional late summer and/or fall bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=299459",
+              "title": "Delphinium elatum - Plant Finder",
+              "quote": "After bloom, promptly cut back spent flower spikes to the basal foliage to encourage an additional late summer and/or fall bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Rhus": {
+      "note": "Thicket-forming shrub that spreads aggressively by root suckers; remove suckers to keep it in bounds.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Species plants may spread aggressively by root suckers.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c337",
+              "title": "Rhus typhina - Plant Finder",
+              "quote": "Species plants may spread aggressively by root suckers."
+            }
+          }
+        ]
+      }
+    },
+    "Vernonia": {
+      "note": "Cut back stems in late spring to reduce mature height; remove flower heads before seed sets to prevent unwanted self-seeding.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "cutback",
+            "note": "Overall plant height may be reduced by cutting back stems in late spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277257",
+              "title": "Vernonia fasciculata - Plant Finder",
+              "quote": "Overall plant height may be reduced by cutting back stems in late spring."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "edit-seedlings",
+            "note": "Remove flower heads before seed develops to avoid any unwanted self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277257",
+              "title": "Vernonia fasciculata - Plant Finder",
+              "quote": "Remove flower heads before seed develops to avoid any unwanted self-seeding."
+            }
+          }
+        ]
+      }
+    },
+    "Forsythia": {
+      "note": "Prune immediately after spring flowering (pruning after mid-July removes next year’s flower buds); rejuvenate old shrubs with a hard cutback every few years.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Development of unkempt growth often occurs if shrubs are not regularly pruned immediately after spring flowering (pruning done after mid-July will remove flower buds for the following spring).",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=291997",
+              "title": "Forsythia × intermedia - Plant Finder",
+              "quote": "Development of unkempt growth often occurs if shrubs are not regularly pruned immediately after spring flowering (pruning done after mid-July will remove flower buds for the following spring)."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "cutback",
+            "note": "A major cut back of stems to almost ground level every 3-4 years for rejuvenation.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=291997",
+              "title": "Forsythia × intermedia - Plant Finder",
+              "quote": "a major cut back of stems to almost ground level every 3-4 years for rejuvenation."
+            }
+          }
+        ]
+      }
+    },
+    "Eutrochium": {
+      "note": "Cut to the ground in late winter ahead of new spring growth.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "cutback",
+            "note": "Cut plants to the ground in late winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=292659",
+              "title": "Eutrochium maculatum - Plant Finder",
+              "quote": "Cut plants to the ground in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Symphyotrichum": {
+      "note": "Upright clump-forming aster; pinch to control height before mid-July, cut to the ground after fall bloom.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "pinch",
+            "note": "Pinch back stems several times before mid-July to control height, promote bushiness, and reduce need for staking.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b540",
+              "title": "Symphyotrichum novae-angliae  - Plant Finder",
+              "quote": "Pinching back stems several times before mid-July will help control plant height, promote bushiness and perhaps obviate the need for staking."
+            }
+          }
+        ],
+        "lateFall": [
+          {
+            "tag": "cutback",
+            "note": "Cut plants to the ground after flowering to prevent unwanted self-seeding and/or if foliage has become unsightly.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b540",
+              "title": "Symphyotrichum novae-angliae  - Plant Finder",
+              "quote": "Plants may be cut to the ground after flowering to prevent any unwanted self-seeding and/or if foliage has become unsightly."
+            }
+          }
+        ]
+      }
+    },
+    "Campanula": {
+      "note": "Mounding bellflower; deadhead to extend bloom, cut back if foliage declines in summer heat, divide every 2 years.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead spent blooms to extend bloom period.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=260348",
+              "title": "Campanula carpatica f. alba 'Weisse Clips' WHITE CLIPS  - Plant Finder",
+              "quote": "Deadheading spent blooms, though tedious, may extend bloom period."
+            }
+          },
+          {
+            "tag": "cutback",
+            "note": "Cut plants back to basal growth if foliage depreciates in summer.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=260348",
+              "title": "Campanula carpatica f. alba 'Weisse Clips' WHITE CLIPS  - Plant Finder",
+              "quote": "Cut plants back to basal growth if foliage depreciates in summer."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps every 2 years to keep vigorous; divide in spring or late summer.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=260348",
+              "title": "Campanula carpatica f. alba 'Weisse Clips' WHITE CLIPS  - Plant Finder",
+              "quote": "Clumps need frequent division (every 2 years) to remain vigorous. Divide in spring or late summer."
+            }
+          }
+        ]
+      }
+    },
+    "Heucherella": {
+      "note": "Intergeneric foamy-bells hybrid; remove spent flower stems to tidy foliage, divide every few years.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove stems of faded flowers to encourage additional bloom and tidy plantings so foliage can be appreciated.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=366345",
+              "title": "× Heucherella 'Twilight'  - Plant Finder",
+              "quote": "Remove stems of faded flowers to encourage additional bloom and to tidy plantings so that the attractive foliage can be fully appreciated."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps in spring every 3-4 years.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=366345",
+              "title": "× Heucherella 'Twilight'  - Plant Finder",
+              "quote": "Divide clumps in spring every 3-4 years."
+            }
+          }
+        ]
+      }
+    },
+    "Perovskia": {
+      "note": "Woody-based subshrub perennial; cut back hard each spring as new growth resumes.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut back plants almost to the ground in late winter to early spring as soon as new growth appears.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=e540",
+              "title": "Perovskia atriplicifolia  - Plant Finder",
+              "quote": "Cut back plants almost to the ground in late winter to early spring as soon as new growth appears."
+            }
+          }
+        ]
+      }
+    },
+    "Agastache": {
+      "note": "Upright mint-family perennial; deadhead to prolong bloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead spent flowers to promote additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=d554",
+              "title": "Agastache foeniculum  - Plant Finder",
+              "quote": "Deadhead spent flowers to promote additional bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Corylus": {
+      "note": "Multi-stemmed suckering shrub; remove root suckers to control spread and maintain shape.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Promptly remove root suckers to maintain plant appearance and, if desired, prevent thicket formation.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c350",
+              "title": "Corylus americana  - Plant Finder",
+              "quote": "Prompt removal of root suckers will help maintain plant appearance, and, if desired, help prevent thicket formation."
+            }
+          }
+        ]
+      }
+    },
+    "Itea": {
+      "note": "Arching-branched shrub; prune as needed right after flowering.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed after flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=286893",
+              "title": "Itea virginica  - Plant Finder",
+              "quote": "Prune as needed after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Lobelia": {
+      "note": "Moisture-loving perennial; mulch to protect roots over winter.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "note": "Apply root mulch in cold winter climates to protect the root system and prevent root heaving.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=278870",
+              "title": "Lobelia cardinalis  - Plant Finder",
+              "quote": "Root mulch should be applied in cold winter climates to protect the root system and to prevent root heaving."
+            }
+          }
+        ]
+      }
+    },
+    "Salix": {
+      "note": "Suckering multi-stemmed shrub/small tree; prune in late winter, periodically renewal-cut for size.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed in late winter to early spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c808",
+              "title": "Salix discolor - Plant Finder",
+              "quote": "Prune as needed in late winter to early spring."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "cutback",
+            "note": "Plants may be cut to the ground every 3-5 years to maintain a smaller shrub shape.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c808",
+              "title": "Salix discolor - Plant Finder",
+              "quote": "Plants may be cut to the ground every 3-5 years to maintain a smaller shrub shape."
+            }
+          }
+        ]
+      }
+    },
+    "Deutzia": {
+      "note": "Short-lived-stem flowering shrub; prune right after spring bloom.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Prune in spring immediately after flowering; annual pruning of dead branches is usually necessary.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=v560",
+              "title": "Deutzia gracilis - Plant Finder",
+              "quote": "Stems are somewhat short-lived, and annual pruning of dead branches is usually necessary. Prune in spring immediately after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Liriope": {
+      "note": "Grass-like groundcover perennial; cut back old foliage before new shoots emerge.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut foliage to the ground (mow large plots on high mower setting) in late winter to early spring in preparation for new growth.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=l100",
+              "title": "Liriope muscari  - Plant Finder",
+              "quote": "Cut foliage to the ground (mow large plots on high mower setting) in late winter to early spring in preparation for new growth."
+            }
+          }
+        ]
+      }
+    },
+    "Leucanthemum": {
+      "note": "Short-lived clumping perennial; deadhead to prolong bloom, divide every few years.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flower heads to promote additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?isprofile=0&taxonid=244689",
+              "title": "Leucanthemum × superbum  - Plant Finder",
+              "quote": "Remove spent flower heads to promote additional bloom."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps as needed (every 2-3 years) to maintain vigor.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?isprofile=0&taxonid=244689",
+              "title": "Leucanthemum × superbum  - Plant Finder",
+              "quote": "Divide clumps as needed (every 2-3 years) to maintain vigor."
+            }
+          }
+        ]
+      }
+    },
+    "Pulmonaria": {
+      "note": "Shade groundcover perennial; divide in fall if overcrowded.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "divide",
+            "note": "Divide plants in fall if they become overcrowded.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=278004",
+              "title": "Pulmonaria saccharata  - Plant Finder",
+              "quote": "Divide plants in fall if they become overcrowded."
+            }
+          }
+        ]
+      }
+    },
+    "Sempervivum": {
+      "note": "Rosette-forming succulent; mother rosettes die after bloom and should be cleared away.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadleaf",
+            "note": "Individual rosettes die after bloom and should be removed from the garden at that time.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b711",
+              "title": "Sempervivum tectorum  - Plant Finder",
+              "quote": "Individual rosettes die after bloom and should be removed from the garden at that time."
+            }
+          }
+        ]
+      }
+    },
+    "Campsis": {
+      "note": "Vigorous woody vine that blooms on new growth; prune hard in early spring to restrain size.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Blooms on new growth, so early spring pruning will not affect flowering — the main opportunity to restrain size.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b840",
+              "title": "Campsis radicans  - Plant Finder",
+              "quote": "It blooms on new growth, so early spring pruning will not affect the flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Cephalanthus": {
+      "note": "Wetland-tolerant shrub; little pruning needed, but can be cut back hard to revitalize.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Pruning is usually not necessary, but may be done in early spring to shape.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=g830",
+              "title": "Cephalanthus occidentalis  - Plant Finder",
+              "quote": "Pruning is usually not necessary, but may be done in early spring to shape."
+            }
+          },
+          {
+            "tag": "cutback",
+            "note": "If plants become unmanageable, they may be cut back near to the ground in early spring to revitalize.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=g830",
+              "title": "Cephalanthus occidentalis  - Plant Finder",
+              "quote": "If plants become unmanageable, however, they may be cut back near to the ground in early spring to revitalize."
+            }
+          }
+        ]
+      }
+    },
+    "Fothergilla": {
+      "note": "Slow-growing suckering shrub; remove root suckers promptly to prevent colonial spread.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Plants may spread by root suckers to form colonies if suckers are not promptly removed.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a430",
+              "title": "Fothergilla gardenii  - Plant Finder",
+              "quote": "Plants may spread by root suckers to form colonies if suckers are not promptly removed."
+            }
+          }
+        ]
+      }
+    },
+    "Hypericum": {
+      "note": "Low mounding shrub; prune after bloom in late summer if needed.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "prune",
+            "note": "Prune if needed after bloom in late summer.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279217",
+              "title": "Hypericum kalmianum  - Plant Finder",
+              "quote": "Prune if needed after bloom in late summer."
+            }
+          }
+        ]
+      }
+    },
+    "Lonicera": {
+      "note": "Twining vine; prune right after flowering as needed.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed immediately after flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=d990",
+              "title": "Lonicera sempervirens  - Plant Finder",
+              "quote": "Prune as needed immediately after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Parthenocissus": {
+      "note": "Vigorous clinging vine; trim regularly to keep growth contained.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Needs little care, but must be trimmed regularly to keep it in bounds.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=l490",
+              "title": "Parthenocissus quinquefolia  - Plant Finder",
+              "quote": "It often needs little care, but must be trimmed regularly to keep it in bounds."
+            }
+          }
+        ]
+      }
+    },
+    "Vaccinium": {
+      "note": "Fruiting shrub; remove flowers the first two years after planting, then prune annually in late winter.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Remove flowers from plants in the year of planting and the following year to prevent fruit set and encourage vegetative growth.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279992",
+              "title": "Vaccinium corymbosum  - Plant Finder",
+              "quote": "Best to remove flowers from plants in the year of planting and in the following year so as to prevent fruit set and to encourage new vegetative growth."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed in late winter beginning in the third year after planting.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279992",
+              "title": "Vaccinium corymbosum  - Plant Finder",
+              "quote": "Prune as needed in late winter beginning in the third year after planting."
+            }
+          }
+        ]
+      }
+    },
+    "Helenium": {
+      "note": "Upright native perennial; pinch in early summer to control height, deadhead to prolong bloom, divide every few years.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "pinch",
+            "note": "Plants may be cut back in early June (at least six weeks before normal flowering) to reduce plant height and encourage branching.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/plantfinderdetails.aspx?kempercode=c930",
+              "title": "Helenium autumnale  - Plant Finder",
+              "quote": "Although not required, plants may be cut back in early June (at least six weeks before normal flowering) to reduce plant height and to encourage branching, thus leading to a more floriferous bloom, healthier foliage and less need for support."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flowers to encourage additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/plantfinderdetails.aspx?kempercode=c930",
+              "title": "Helenium autumnale  - Plant Finder",
+              "quote": "Remove spent flowers to encourage additional bloom."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps as needed (every 3-4 years) to maintain vigor.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/plantfinderdetails.aspx?kempercode=c930",
+              "title": "Helenium autumnale  - Plant Finder",
+              "quote": "Divide clumps as needed (every 3-4 years) to maintain vigor."
+            }
+          }
+        ]
+      }
+    },
+    "Sorbaria": {
+      "note": "Suckering shrub; remove root suckers to control spread and prune/rejuvenate in late winter to early spring.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Remove root suckers promptly to avoid unwanted spread.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=286405",
+              "title": "Sorbaria sorbifolia  - Plant Finder",
+              "quote": "Remove root suckers promptly to avoid unwanted spread."
+            }
+          }
+        ],
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Prune in late winter to early spring; plants may be cut close to the ground to rejuvenate.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=286405",
+              "title": "Sorbaria sorbifolia  - Plant Finder",
+              "quote": "Prune in late winter to early spring (plants may be cut close to the ground to rejuvenate)."
+            }
+          }
+        ]
+      }
+    },
+    "Rodgersia": {
+      "note": "Bold shade perennial; deadhead spent flower stalks after bloom.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead spent flower stalks after bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?chr=48&isprofile=0&taxonid=286948",
+              "title": "Rodgersia podophylla  - Plant Finder",
+              "quote": "Deadhead spent flower stalks after bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Callicarpa": {
+      "note": "Blooms on new wood; prune/cut back hard each year in late winter to early spring.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Most gardeners prefer to prune stems back to 6 inches in late winter to early spring each year; such hard pruning promotes compactness and good flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=j590",
+              "title": "Callicarpa dichotoma  - Plant Finder",
+              "quote": "Most gardeners prefer to prune stems back to 6” in late winter to early spring each year."
+            }
+          }
+        ]
+      }
+    },
+    "Calamintha": {
+      "note": "Mat-forming mint-family herb; shear after flowering to tidy and prevent self-seeding.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "cutback",
+            "note": "Shear or cut back plants after flowering to tidy the planting, remove unsightly foliage, and/or prevent unwanted self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=281538",
+              "title": "Calamintha nepeta  - Plant Finder",
+              "quote": "Shear or cut back plants after flowering to tidy the planting, to remove unsightly foliage and/or to prevent any unwanted self-seeding."
+            }
+          }
+        ]
+      }
+    },
+    "Wisteria": {
+      "note": "Vigorous twining vine; needs regular pruning to control size/shape and encourage flowering.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "Vines need regular pruning(s) in order to control size and shape of the plant and to encourage flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=280631",
+              "title": "Wisteria frutescens  - Plant Finder",
+              "quote": "Vines need regular pruning(s) in order to control size and shape of the plant and to encourage flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Veronicastrum": {
+      "note": "Tall native perennial; deadhead to extend bloom, cut back after flowering to stimulate new growth/rebloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead spent racemes to extend bloom period.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=g180",
+              "title": "Veronicastrum virginicum  - Plant Finder",
+              "quote": "Deadhead spent racemes to extend bloom period."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "cutback",
+            "note": "Cut back plants after flowering to basal growth to stimulate new foliage growth and possible late summer or fall bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=g180",
+              "title": "Veronicastrum virginicum  - Plant Finder",
+              "quote": "Cut back plants after flowering to basal growth to stimulate new foliage growth and possible late summer or fall bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Tsuga": {
+      "note": "Shade-loving evergreen conifer; appreciates a thick winter mulch and consistent moisture.",
+      "tasks": {
+        "lateFall": [
+          {
+            "tag": "mulch",
+            "note": "Appreciates a thick winter mulch.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=g100",
+              "title": "Tsuga canadensis  - Plant Finder",
+              "quote": "Appreciates a thick winter mulch."
+            }
+          }
+        ]
+      }
+    },
+    "Rubus": {
+      "note": "Suckering bramble; prune immediately after fruiting.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "prune",
+            "note": "Prune immediately after fruiting.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=m190",
+              "title": "Rubus odoratus  - Plant Finder",
+              "quote": "Prune immediately after fruiting."
+            }
+          }
+        ]
+      }
+    },
+    "Vitis": {
+      "note": "Woody vine; needs regular pruning and support/training to control growth and maximize fruiting.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "prune",
+            "note": "For quality fruit production, needs a support system, training, regular spraying and regular pruning to maximize fruit production.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=287551",
+              "title": "Vitis vinifera  - Plant Finder",
+              "quote": "For quality fruit production, it needs a support system, training, regular spraying and regular pruning to maximize fruit production."
+            }
+          }
+        ]
+      }
+    },
+    "Amelanchier": {
+      "note": "Suckering tree/shrub; remove root suckers to avoid a shrubby growth habit.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Root suckers are common, and if not removed, will result in a shrubby growth habit for the plant.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=h290",
+              "title": "Amelanchier arborea  - Plant Finder",
+              "quote": "Root suckers are common, and if not removed, will result in a shrubby growth habit for the plant."
+            }
+          }
+        ]
+      }
+    },
+    "Astrantia": {
+      "note": "Carrot-family perennial; deadhead spent flowerheads if self-seeding is unwanted (also prolongs bloom).",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead flowerheads after bloom if self-seeding is unwanted (deadheading may also prolong bloom).",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=276013",
+              "title": "Astrantia major  - Plant Finder",
+              "quote": "Deadhead flowerheads after bloom if self-seeding is unwanted (deadheading may also prolong bloom)."
+            }
+          }
+        ]
+      }
+    },
+    "Bignonia": {
+      "note": "Vigorous woody vine; blooms on previous year’s wood so prune only after flowering, and remove root suckers if spread is unwanted.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "prune",
+            "note": "Prune after flowering if needed.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=w830",
+              "title": "Bignonia capreolata  - Plant Finder",
+              "quote": "Prune after flowering if needed."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Established plants may send up root suckers which should be removed if spread is not desired.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=w830",
+              "title": "Bignonia capreolata  - Plant Finder",
+              "quote": "Established plants may send up root suckers which should be removed if spread is not desired."
+            }
+          }
+        ]
+      }
+    },
+    "Bergenia": {
+      "note": "Evergreen-ish groundcover; remove winter-damaged foliage in late winter/early spring and deadhead spent flower stems promptly.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "deadleaf",
+            "note": "Remove all damaged foliage in late winter to early spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=b710",
+              "title": "Bergenia cordifolia  - Plant Finder",
+              "quote": "Remove all damaged foliage in late winter to early spring."
+            }
+          }
+        ],
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Promptly remove spent flowering stems.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=b710",
+              "title": "Bergenia cordifolia  - Plant Finder",
+              "quote": "Prompt remove spent flowering stems."
+            }
+          }
+        ]
+      }
+    },
+    "Chelone": {
+      "note": "Native wetland perennial; pinch stems in spring to control height, and mulch (especially in sun).",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "pinch",
+            "note": "Consider pinching back the stem ends in spring to reduce mature plant height, especially when growing plants in strongly shaded areas.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c100",
+              "title": "Chelone obliqua  - Plant Finder",
+              "quote": "Consider pinching back the stem ends in spring to reduce mature plant height, especially when growing plants in strongly shaded areas where they are more likely to need some support."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "mulch",
+            "note": "Appreciates a composted leaf mulch, particularly in full sun areas.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c100",
+              "title": "Chelone obliqua  - Plant Finder",
+              "quote": "Appreciates a composted leaf mulch, particularly in full sun areas."
+            }
+          }
+        ]
+      }
+    },
+    "Chaenomeles": {
+      "note": "Blooms on old wood; prune to shape after flowering and promptly remove root suckers.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune to shape as needed in spring after flowering to stimulate growth of flowering spurs which will improve bloom for the following year.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c298",
+              "title": "Chaenomeles speciosa  - Plant Finder",
+              "quote": "Prune to shape as needed in spring after flowering to stimulate growth of flowering spurs which will improve bloom for the following year (although such pruning will reduce fruit production for the current year)."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Promptly remove root suckers to control possible spread.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c298",
+              "title": "Chaenomeles speciosa  - Plant Finder",
+              "quote": "Promptly remove root suckers to control possible spread."
+            }
+          }
+        ]
+      }
+    },
+    "Calycanthus": {
+      "note": "Suckering fragrant shrub; prune immediately after flowering and remove root suckers if naturalization is unwanted.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Prune immediately after flowering to shape or maintain compactness.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=278791",
+              "title": "Calycanthus floridus  - Plant Finder",
+              "quote": "Prune immediately after flowering to shape or maintain compactness."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Tends to sucker and often forms colonies in the wild; remove root suckers promptly if naturalization is not desired.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=278791",
+              "title": "Calycanthus floridus  - Plant Finder",
+              "quote": "Remove root suckers promptly if naturalization is not desired."
+            }
+          }
+        ]
+      }
+    },
+    "Epimedium": {
+      "note": "Rhizomatous groundcover; cut back old foliage before new growth emerges.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut back any remaining old foliage in late winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c640",
+              "title": "Epimedium × rubrum  - Plant Finder",
+              "quote": "Cut back any remaining old foliage in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Digitalis": {
+      "note": "Biennial/short-lived perennial; deadhead spent spikes to encourage perennial behavior.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Cut all flowering stalks back to basal foliage before seed sets in order to encourage plants to act as perennials.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c530",
+              "title": "Digitalis purpurea  - Plant Finder",
+              "quote": "Cut all flowering stalks back to basal foliage before seed sets in order to encourage plants to act as perennials."
+            }
+          }
+        ]
+      }
+    },
+    "Galium": {
+      "note": "Spreading groundcover; can be mowed to control spread.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Where restraint becomes necessary, plants can be mowed with a rotary mower on a high setting.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c820",
+              "title": "Galium odoratum  - Plant Finder",
+              "quote": "Where restraint becomes necessary, plants can be mowed with a rotary mower on a high setting."
+            }
+          }
+        ]
+      }
+    },
+    "Filipendula": {
+      "note": "Cut back depreciated foliage after bloom in late summer.",
+      "tasks": {
+        "lateSummer": [
+          {
+            "tag": "cutback",
+            "note": "If foliage depreciates in late summer, cut it back after bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=286347",
+              "title": "Filipendula vulgaris  - Plant Finder",
+              "quote": "If foliage depreciates in late summer, cut it back after bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Gaillardia": {
+      "note": "Deadhead to tidy and encourage rebloom; cut back if flowering declines to push a fall bloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadheading spent flowers is not necessary but will tidy the planting and may encourage additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a579",
+              "title": "Gaillardia × grandiflora  - Plant Finder",
+              "quote": "Deadheading spent flowers is not necessary but will tidy the planting and may encourage additional bloom."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "cutback",
+            "note": "If flowering declines in summer, consider cutting back plants to encourage a fall bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a579",
+              "title": "Gaillardia × grandiflora  - Plant Finder",
+              "quote": "If flowering declines in summer, consider cutting back plants to encourage a fall bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Euphorbia": {
+      "note": "Remove spent flowers promptly to prevent unwanted self-seeding.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Promptly remove spent flowers (shearing plants to shape is one option) to prevent any unwanted self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=280238",
+              "title": "Euphorbia polychroma  - Plant Finder",
+              "quote": "Promptly remove spent flowers (shearing plants to shape is one option) to prevent any unwanted self-seeding."
+            }
+          }
+        ]
+      }
+    },
+    "Gypsophila": {
+      "note": "Cut back or shear after flowering to promote rebloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "shear",
+            "note": "Cut back or shear after flowering to promote rebloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=h930",
+              "title": "Gypsophila paniculata 'Bristol Fairy'",
+              "quote": "Cut back or shear after flowering to promote rebloom."
+            }
+          }
+        ]
+      }
+    },
+    "Helianthus": {
+      "note": "Spreads by rhizomes; divide periodically to control spread and maintain vigor.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "divide",
+            "note": "Divide every 3-4 years to control spread and maintain vigor.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c970",
+              "title": "Helianthus salicifolius  - Plant Finder",
+              "quote": "Divide every 3-4 years to control spread and maintain vigor."
+            }
+          }
+        ]
+      }
+    },
+    "Lilium": {
+      "note": "Deadhead spent flowers to prevent seed-set; wait to cut back stems until foliage yellows.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove flowers as they fade to prevent seed from setting.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a462",
+              "title": "Lilium (group)  - Plant Finder",
+              "quote": "Remove flowers as they fade to prevent seed from setting."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "cutback",
+            "note": "After bloom, cut plants back only after leaves and stems turn yellow.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a462",
+              "title": "Lilium (group)  - Plant Finder",
+              "quote": "After bloom, cut plants back only after leaves and stems turn yellow."
+            }
+          }
+        ]
+      }
+    },
+    "Kerria": {
+      "note": "Blooms on old wood; prune after flowering. Remove suckers promptly to control spread.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Blooms on previous year’s wood, so prune in spring after flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c315",
+              "title": "Kerria japonica 'Golden Guinea'  - Plant Finder",
+              "quote": "Blooms on previous year’s wood, so prune in spring after flowering."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Suckering habit can be a problem, and unwanted suckers should be promptly removed.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c315",
+              "title": "Kerria japonica 'Golden Guinea'  - Plant Finder",
+              "quote": "Suckering habit can be a problem, and unwanted suckers should be promptly removed."
+            }
+          }
+        ]
+      }
+    },
+    "Platycodon": {
+      "note": "Deadhead to prolong bloom; cut back stems by half in May to reduce height and avoid staking.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "cutback",
+            "note": "Consider cutting back plant stems by 1/2 in May to reduce plant height and possibly avoid staking.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c282",
+              "title": "Platycodon grandiflorus - Plant Finder",
+              "quote": "Consider cutting back plant stems by 1/2 in May to reduce plant height and possibly avoid staking."
+            }
+          }
+        ],
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadheading spent flowers generally prolongs the bloom period.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c282",
+              "title": "Platycodon grandiflorus - Plant Finder",
+              "quote": "Deadheading spent flowers generally prolongs the bloom period."
+            }
+          }
+        ]
+      }
+    },
+    "Pachysandra": {
+      "note": "Thin periodically to promote air circulation and reduce leaf blight risk.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "thin",
+            "note": "Avoid overhead watering and thin plants periodically to promote good air circulation, particularly if plants have experienced problems with leaf blight.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=278317",
+              "title": "Pachysandra terminalis  - Plant Finder",
+              "quote": "Avoid overhead watering and thin plants periodically to promote good air circulation, particularly if plants have experienced problems with leaf blight."
+            }
+          }
+        ]
+      }
+    },
+    "Pieris": {
+      "note": "Remove spent flower clusters right after bloom.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flowers immediately after bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=e680",
+              "title": "Pieris japonica  - Plant Finder",
+              "quote": "Remove spent flowers immediately after bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Lupinus": {
+      "note": "Deadhead spent flower spikes to encourage rebloom, maintain vigor, and prevent unwanted self-seeding.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Deadhead spent flower spikes to encourage additional bloom, maintain plant vigor and prevent unwanted self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b764",
+              "title": "Lupinus × hybrida - Plant Finder",
+              "quote": "Deadhead spent flower spikes to encourage additional bloom, maintain plant vigor and prevent unwanted self-seeding."
+            }
+          }
+        ]
+      }
+    },
+    "Philadelphus": {
+      "note": "Blooms on prior year's wood.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Flowers appear on the prior year's growth, so prune immediately after flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=364293",
+              "title": "Philadelphus coronarius 'Romanizam' ROMANTIC KNIGHT - Plant Finder",
+              "quote": "Flowers appear on the prior year’s growth, so prune as needed immediately after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Potentilla": {
+      "note": "Shrubby cinquefoil benefits from an annual prune.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed in late winter/early spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c332",
+              "title": "Potentilla fruticosa - Plant Finder",
+              "quote": "Prune as needed in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Sambucus": {
+      "note": "Suckering shrub; rejuvenate with a hard late-winter/early-spring prune.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune out dead/weakened stems, shorten one-year stems, or cut back to the ground to rejuvenate.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f470",
+              "title": "Sambucus canadensis - Plant Finder",
+              "quote": "A large number of late winter or early spring pruning options include (a) pruning out dead or weakened stems, (b) shortening one year stems or (c) cutting back to the ground to rejuvenate."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Spreads by root suckers; remove suckers unless naturalizing is wanted.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f470",
+              "title": "Sambucus canadensis - Plant Finder",
+              "quote": "Prune suckers as they appear unless naturalizing."
+            }
+          }
+        ]
+      }
+    },
+    "Prunus": {
+      "note": "Purple-leaf sand cherry benefits from a post-bloom shaping prune.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed after flowering.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=263994",
+              "title": "Prunus × cistena - Plant Finder",
+              "quote": "Prune as needed after flowering."
+            }
+          }
+        ]
+      }
+    },
+    "Symphoricarpos": {
+      "note": "Suckering shrub; control spread by removing runners.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Remove root suckers and runners to control unwanted spread.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f730",
+              "title": "Symphoricarpos orbiculatus - Plant Finder",
+              "quote": "Remove root suckers and runners to control any unwanted spread of the plant."
+            }
+          }
+        ]
+      }
+    },
+    "Scabiosa": {
+      "note": "Pincushion flower reblooms readily when deadheaded.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove spent flowers to encourage additional bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279861",
+              "title": "Scabiosa caucasica - Plant Finder",
+              "quote": "Remove spent flowers to encourage additional bloom."
+            }
+          }
+        ]
+      }
+    },
+    "Iberis": {
+      "note": "Candytuft stays compact and rebounds when sheared after bloom.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "shear",
+            "note": "Cut or shear stems back by 1/3 after flowering to encourage new growth and maintain compact habit.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=k620",
+              "title": "Iberis sempervirens - Plant Finder",
+              "quote": "Cut or sheer plants stems back by 1/3 after flowering to encourage new growth and to maintain compact habit."
+            }
+          }
+        ]
+      }
+    },
+    "Tradescantia": {
+      "note": "Spiderwort sprawls by midsummer; cut back hard for fresh foliage and a possible rebloom.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "cutback",
+            "note": "Cut back to 6-12\" in mid-summer to encourage new growth and a possible fall bloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=r820",
+              "title": "Tradescantia ohiensis - Plant Finder",
+              "quote": "Cut back to 6-12\" in mid-summer to encourage new growth and a possible fall bloom."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "divide",
+            "note": "Divide clumps when they become overcrowded.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=r820",
+              "title": "Tradescantia ohiensis - Plant Finder",
+              "quote": "Divide clumps when they become overcrowded."
+            }
+          }
+        ]
+      }
+    },
+    "Saponaria": {
+      "note": "Rock soapwort reblooms when sheared back after its first flush.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "shear",
+            "note": "After flowering, shear back by around half to encourage branching, bushy growth and reblooming.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279101",
+              "title": "Saponaria ocymoides - Plant Finder",
+              "quote": "After flowering, shear back by around half to encourage branching, bushy growth and reblooming."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "divide",
+            "note": "Clumps can be divided in spring or summer.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279101",
+              "title": "Saponaria ocymoides - Plant Finder",
+              "quote": "Clumps can be divided in spring or summer."
+            }
+          }
+        ]
+      }
+    },
+    "Sanguisorba": {
+      "note": "Burnet self-seeds freely; deadhead promptly to control it.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Prompt removal of spent flowers will prevent unwanted self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=286367",
+              "title": "Sanguisorba officinalis - Plant Finder",
+              "quote": "Prompt removal of spent flowers will prevent unwanted self-seeding."
+            }
+          }
+        ]
+      }
+    },
+    "Stephanandra": {
+      "note": "Lace shrub is pruned in late winter to keep its mounding habit tidy.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune as needed in late winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=253850",
+              "title": "Stephanandra incisa 'Crispa' - Plant Finder",
+              "quote": "Prune as needed in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Schizophragma": {
+      "note": "Japanese hydrangea vine is pruned to control its size before spring growth.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "prune",
+            "note": "Prune in late winter to early spring.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f520",
+              "title": "Schizophragma hydrangeoides - Plant Finder",
+              "quote": "Prune in late winter to early spring."
+            }
+          }
+        ]
+      }
+    },
+    "Origanum": {
+      "note": "Oregano stays tidy and leafy when sheared before it flowers.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Best to shear plants back regularly before flowering to keep the planting tidy and to induce growth of new leaves.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=281411",
+              "title": "Origanum vulgare - Plant Finder",
+              "quote": "Best to shear plants back regularly before flowering to keep the planting tidy and to induce growth of new leaves."
+            }
+          }
+        ]
+      }
+    },
+    "Eleutherococcus": {
+      "note": "Five-fingered aralia suckers; remove suckers to keep its shape.",
+      "tasks": {
+        "general": [
+          {
+            "tag": "contain",
+            "note": "Promptly remove root suckers to maintain appearance unless naturalizing.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=246011",
+              "title": "Eleutherococcus sieboldianus 'Variegatus' - Plant Finder",
+              "quote": "Promptly remove root suckers to maintain appearance unless naturalizing."
+            }
+          }
+        ]
+      }
+    },
+    "Sisyrinchium": {
+      "note": "Blue-eyed grass self-seeds freely; shear after bloom to control it and tidy foliage.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "shear",
+            "note": "Shear back after bloom to avoid unwanted self-seeding and to tidy foliage for the rest of the season.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c609",
+              "title": "Sisyrinchium angustifolium 'Lucerne' - Plant Finder",
+              "quote": "Plantings may be sheared back after bloom to avoid any unwanted self-seeding and/or to tidy foliage for remaining part of the growing season."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "divide",
+            "note": "May need to be divided every 2-3 years to keep plantings vigorous.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c609",
+              "title": "Sisyrinchium angustifolium 'Lucerne' - Plant Finder",
+              "quote": "Plants may need to be divided every 2-3 years to keep plantings vigorous."
+            }
+          }
+        ]
+      }
+    },
+    "Kalimeris": {
+      "note": "Pinch in early summer for bushier growth, then shear after bloom for a possible fall rebloom.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "pinch",
+            "note": "Foliage may be pinched back in early summer to stimulate new growth.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c403",
+              "title": "Kalimeris incisa 'Blue Star' - Plant Finder",
+              "quote": "Foliage may be pinched back in early summer to stimulate new growth."
+            }
+          }
+        ],
+        "lateSummer": [
+          {
+            "tag": "shear",
+            "note": "Shear stems after flowering to encourage a possible fall rebloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c403",
+              "title": "Kalimeris incisa 'Blue Star' - Plant Finder",
+              "quote": "Shear stems after flowering to encourage a possible fall rebloom."
+            }
+          }
+        ]
+      }
+    },
+    "Packera": {
+      "note": "Golden ragwort self-seeds heavily; remove flowering stems after bloom to control it.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "deadhead",
+            "note": "Remove flowering stems after bloom/seed dispersal.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=l350",
+              "title": "Packera aurea - Plant Finder",
+              "quote": "Remove flowering stems after bloom/seed dispersal."
+            }
+          }
+        ]
+      }
+    },
+    "Molinia": {
+      "note": "Cut back dead foliage in early spring before new growth emerges.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut any surviving foliage back to the ground in early spring just before new leaf blades appear.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=285206",
+              "title": "Molinia caerulea - Plant Finder",
+              "quote": "Cut any surviving foliage back to the ground in early spring (late February-March) just before the new leaf blades appear."
+            }
+          }
+        ]
+      }
+    },
+    "Sesleria": {
+      "note": "Cut clumps back to the ground in late winter before new growth starts.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut clumps back to the ground in late winter.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=m330",
+              "title": "Sesleria autumnalis - Plant Finder",
+              "quote": "Cut clumps back to the ground in late winter."
+            }
+          }
+        ]
+      }
+    },
+    "Festuca": {
+      "note": "Cut back foliage in early spring to tidy clumps; divide every 2-3 years as centers die out.",
+      "tasks": {
+        "earlySpring": [
+          {
+            "tag": "cutback",
+            "note": "Cut back foliage in early spring to 3-4\" to tidy clumps and facilitate emergence of new leaf blades.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c760",
+              "title": "Festuca glauca 'Elijah Blue' - Plant Finder",
+              "quote": "Cut back foliage in early spring to 3-4\" to tidy clumps and to facilitate emergence of the new leaf blades."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "divide",
+            "note": "Clumps tend to die out in the center and need to be divided and replanted or replaced every 2-3 years.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c760",
+              "title": "Festuca glauca 'Elijah Blue' - Plant Finder",
+              "quote": "Clumps tend to die out in the center and need to be divided and replanted or replaced every 2-3 years."
+            }
+          }
+        ]
+      }
+    },
+    "Alchemilla": {
+      "note": "Remove spent flower stems promptly to prevent self-seeding and may encourage a late-summer rebloom.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "deadhead",
+            "note": "Prompt removal of spent flower stems will not only prevent self-seeding but may also encourage a sparse, late summer rebloom.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=b210",
+              "title": "Alchemilla mollis - Plant Finder",
+              "quote": "Prompt removal of spent flower stems will not only prevent self-seeding but may also encourage a sparse, late summer rebloom."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "divide",
+            "note": "Divide plants as needed.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=b210",
+              "title": "Alchemilla mollis - Plant Finder",
+              "quote": "Divide plants as needed."
+            }
+          }
+        ]
+      }
+    },
+    "Cerastium": {
+      "note": "Shear off flower stems after bloom to prevent self-seeding and tidy the foliage mat; divide yearly if needed.",
+      "tasks": {
+        "earlySummer": [
+          {
+            "tag": "shear",
+            "note": "Best to shear off flower stems after bloom in order to prevent self-seeding, reduce future foliage decline, and shape/neaten the foliage mat.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=h590",
+              "title": "Cerastium tomentosum - Plant Finder",
+              "quote": "Best to shear off flower stems after bloom in order to prevent self-seeding, reduce future foliage decline, and shape/neaten the foliage mat."
+            }
+          }
+        ],
+        "general": [
+          {
+            "tag": "divide",
+            "note": "Divide every year if needed to help maintain compact size of the mat.",
+            "status": "verified",
+            "source": {
+              "url": "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=h590",
+              "title": "Cerastium tomentosum - Plant Finder",
+              "quote": "Divide every year if needed to help maintain compact size of the mat."
+            }
+          }
+        ]
+      }
+    },
+    "Hylotelephium": {
+      "note": "May be cut back in late spring to control height and prevent floppy growth.",
+      "tasks": {
+        "lateSpring": [
+          {
+            "tag": "cutback",
+            "note": "Plants may be cut back in late spring to control height.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=f560",
+              "title": "Hylotelephium 'Herbstfreude' AUTUMN JOY - Plant Finder",
+              "quote": "Plants may be cut back in late spring to control height."
+            }
+          }
+        ]
+      }
+    },
+    "Verbena": {
+      "note": "Remove spent flowering spikes before seed matures to prevent unwanted self-seeding.",
+      "tasks": {
+        "midSummer": [
+          {
+            "tag": "deadhead",
+            "note": "Remove the spent flowering spikes before seed matures to prevent any unwanted self-seeding.",
+            "status": "verified",
+            "source": {
+              "url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=287473",
+              "title": "Verbena stricta - Plant Finder",
+              "quote": "Remove the spent flowering spikes before seed matures to prevent any unwanted self-seeding."
+            }
+          }
+        ]
+      }
+    }
+  }
+}

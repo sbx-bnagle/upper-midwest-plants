@@ -343,6 +343,24 @@ button.inventory-download:disabled {
   .detail-blurb {
     color: var(--inv-text);
   }
+  .maint-season {
+    border-bottom-color: var(--inv-rule);
+  }
+  .maint-season-label {
+    color: var(--inv-text-faint);
+  }
+  .maint-status-verified {
+    color: var(--green-tint);
+    background: rgba(207, 224, 184, 0.16);
+  }
+  .maint-status-general {
+    color: var(--inv-text-soft);
+    background: rgba(240, 239, 235, 0.1);
+  }
+  .maint-status-draft {
+    color: #e0a15a;
+    background: rgba(224, 161, 90, 0.18);
+  }
   .detail-empty {
     color: var(--inv-text-faint);
   }

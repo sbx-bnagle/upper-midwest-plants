@@ -178,6 +178,9 @@ const DETAIL_TIERS = [
   },
   {
     title: 'Maintenance',
+    // read mode renders resolved tasks (archetype + genus + plant); edit mode
+    // exposes the raw per-plant fields below
+    custom: 'maintenance',
     fields: [
       { k: 'Maintenance, General', label: 'General', full: true },
       { k: 'Maintenance, Early Spring', label: 'Early spring' },
@@ -229,6 +232,45 @@ function fieldValueHtml(p, f) {
   return v == null || String(v).trim() === '' ? EMPTY_VAL : esc(v);
 }
 
+/* Maintenance block: resolved tasks grouped by season, each carrying its
+   provenance so a client deliverable can tell verified from general practice. */
+function maintenanceHtml(p) {
+  const res = resolveMaintenance(p);
+  if (!maintHasAny(res)) {
+    return `<div class="detail-item detail-item-full"><span class="detail-value">${EMPTY_VAL}</span></div>`;
+  }
+  const seasonLabels = {
+    general: 'General',
+    earlySpring: 'Early spring',
+    lateSpring: 'Late spring',
+    earlySummer: 'Early summer',
+    midSummer: 'Mid summer',
+    lateSummer: 'Late summer',
+    earlyFall: 'Early fall',
+    midFall: 'Mid fall',
+    lateFall: 'Late fall',
+  };
+  let out = '';
+  MAINT_SEASONS.forEach((s) => {
+    const list = res[s];
+    if (!list || !list.length) return;
+    let rows = '';
+    list.forEach((e) => {
+      const label = maintLabel(e);
+      const st = e.status || 'general';
+      const title = e.source ? ` title="${esc(e.source)}"` : '';
+      rows +=
+        `<li class="maint-task maint-${esc(e.origin || 'archetype')}"${title}>` +
+        (label ? `<span class="maint-tag">${esc(label)}</span>` : '') +
+        (e.note ? `<span class="maint-note">${esc(e.note)}</span>` : '') +
+        `<span class="maint-status maint-status-${esc(st)}">${esc(st)}</span>` +
+        `</li>`;
+    });
+    out += `<div class="maint-season"><span class="maint-season-label">${esc(seasonLabels[s] || s)}</span><ul class="maint-list">${rows}</ul></div>`;
+  });
+  return `<div class="detail-item-full maint-block">${out}</div>`;
+}
+
 function renderDetail(el, p, editing) {
   const cm = esc(p[K.com]),
     lat = esc(p[K.lat]);
@@ -241,6 +283,11 @@ function renderDetail(el, p, editing) {
   let tiersHtml = '';
   DETAIL_TIERS.forEach((tier) => {
     let rows = '';
+    if (tier.custom === 'maintenance' && !editing) {
+      const head = `<h4 class="detail-tier-title">${esc(tier.title)}</h4>`;
+      tiersHtml += `<div class="detail-tier">${head}${maintenanceHtml(p)}</div>`;
+      return;
+    }
     tier.fields.forEach((f) => {
       if (f.editOnly && !editing) return;
       const label = esc(fieldLabel(f));
