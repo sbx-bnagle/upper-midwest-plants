@@ -39,8 +39,41 @@ function data(cb) {
   const plants = JSON.stringify(JSON.parse(fs.readFileSync('data/plants.json', 'utf8')));
   const k = JSON.stringify(JSON.parse(fs.readFileSync('data/tkeys.json', 'utf8')));
   const maint = JSON.stringify(JSON.parse(fs.readFileSync('data/maintenance-rules.json', 'utf8')));
+
+  /*
+   * Task prose from docs/tasks is embedded rather than fetched. The exported
+   * guide is a self-contained package of files dropped into iA Writer, so its
+   * content blocks have to resolve against copies travelling inside the zip,
+   * not against anything on this machine. Fetching would also fail outright in
+   * the packaged single-file build, which runs from file://.
+   */
+  const path = require('path');
+  const tasks = {};
+  ['plant', 'general'].forEach((group) => {
+    const dir = path.join('docs', 'tasks', group);
+    // Fail loudly. This directory is a build input, and an empty TASKS object
+    // produces a guide export whose content blocks all point at nothing —
+    // which looks fine until someone opens the package in iA Writer.
+    if (!fs.existsSync(dir)) {
+      throw new Error(
+        `Missing build input: ${dir}. The guide export embeds this prose, so the ` +
+          `canonical copy has to live in the repo. If you keep the editable copy ` +
+          `in iA Writer, sync it back here before building.`,
+      );
+    }
+    fs.readdirSync(dir)
+      .filter((f) => f.endsWith('.md'))
+      .forEach((f) => {
+        tasks[`${group}/${f.replace(/\.md$/, '')}`] = fs.readFileSync(path.join(dir, f), 'utf8');
+      });
+  });
+  if (!Object.keys(tasks).length) throw new Error('docs/tasks contained no .md files');
+
   fs.mkdirSync('dist/js', { recursive: true });
-  fs.writeFileSync('dist/js/data.js', `const PLANTS=${plants};const K=${k};const MAINT=${maint};`);
+  fs.writeFileSync(
+    'dist/js/data.js',
+    `const PLANTS=${plants};const K=${k};const MAINT=${maint};const TASKS=${JSON.stringify(tasks)};`,
+  );
   cb();
 }
 

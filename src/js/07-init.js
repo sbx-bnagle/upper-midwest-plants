@@ -146,9 +146,10 @@ function init() {
   };
   $('inv-overlay').onclick = closeInv;
   $('export-btn').onclick = exportData;
+  /* the inventory's .md button now builds the full client guide package */
   $('inv-download').onclick = (e) => {
     e.stopPropagation();
-    downloadInventoryMd();
+    openGuideDialog();
   };
   updateEditsBadge();
   document.addEventListener('keydown', (e) => {
